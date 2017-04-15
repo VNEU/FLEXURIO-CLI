@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 echo " ----------------------------------------------------------------------------------"
 echo " |     ___________     __________    _______    ___________     __    ______      |"
 echo " |    |   ______  |   |   ____   \  /  ___  |  |  ___   _  \   |  |  /  __  \     |"
@@ -101,7 +101,7 @@ elif [ "$1" == "server-build" ]; then
    if [[ $2 = *[!\ ]* ]]; then
        if [[ $3 = *[!\ ]* ]]; then
           echo " Build Flexurio for $2 at $3 . . . "
-          [ cd "$LOKASINIPUN/FLEXURIO-CORE/" && meteor build --architecture=$2 ../BUILD --server=$3 ] || [ echo "You're not in a Flexurio project directory." ]
+          cd "$LOKASINIPUN/FLEXURIO-CORE/" && meteor build --architecture=$2 ../BUILD --server=$3
        else
           echo " Please Input IP:PORT"
        fi
