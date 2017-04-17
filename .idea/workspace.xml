@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac985f8a-0ac8-4bd3-adaa-bd2307805a06" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/BUILD/flexurio" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/BUILD/flexurio_portal" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/BUILD/install" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/compile" afterPath="$PROJECT_DIR$/compile.sh" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/install" afterPath="$PROJECT_DIR$/install.sh" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flexurio" afterPath="$PROJECT_DIR$/flexurio" />
     </list>
@@ -29,8 +24,8 @@
       <file leaf-file-name="flexurio" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/flexurio">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1020">
-              <caret line="103" column="97" lean-forward="false" selection-start-line="103" selection-start-column="97" selection-end-line="103" selection-end-column="97" />
+            <state relative-caret-position="216">
+              <caret line="717" column="0" lean-forward="false" selection-start-line="717" selection-start-column="0" selection-end-line="717" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -39,7 +34,7 @@
       <file leaf-file-name="install.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/install.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
+            <state relative-caret-position="480">
               <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding />
             </state>
@@ -64,6 +59,8 @@
       <find>$PWD</find>
       <find>$LOKASINIPUN</find>
       <find>build</find>
+      <find>= this.</find>
+      <find>flxcomm</find>
     </findStrings>
     <replaceStrings>
       <replace>'flexurio_config'</replace>
@@ -94,9 +91,9 @@
         <option value="$PROJECT_DIR$/compile" />
         <option value="$PROJECT_DIR$/BUILD/flexurio_config" />
         <option value="$PROJECT_DIR$/install" />
-        <option value="$PROJECT_DIR$/flexurio" />
         <option value="$PROJECT_DIR$/flexurio.sh" />
         <option value="$PROJECT_DIR$/install.sh" />
+        <option value="$PROJECT_DIR$/flexurio" />
       </list>
     </option>
   </component>
@@ -130,7 +127,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -159,6 +155,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -429,14 +426,21 @@
       <option name="project" value="LOCAL" />
       <updated>1491827045885</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="update minor di Server-Build">
+      <created>1492229431164</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1492229431164</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="13" width="1280" height="774" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28594506" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2907916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -467,7 +471,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add installer" />
-    <option name="LAST_COMMIT_MESSAGE" value="add installer" />
+    <MESSAGE value="update minor di Server-Build" />
+    <option name="LAST_COMMIT_MESSAGE" value="update minor di Server-Build" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -654,18 +659,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/install.sh">
+    <entry file="file://$PROJECT_DIR$/flexurio">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        <state relative-caret-position="216">
+          <caret line="717" column="0" lean-forward="false" selection-start-line="717" selection-start-column="0" selection-end-line="717" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/flexurio">
+    <entry file="file://$PROJECT_DIR$/install.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="103" column="97" lean-forward="false" selection-start-line="103" selection-start-column="97" selection-end-line="103" selection-end-column="97" />
+        <state relative-caret-position="480">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding />
         </state>
       </provider>

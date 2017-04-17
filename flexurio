@@ -553,6 +553,10 @@ elif [ "$1" == "server-newmodule" ]; then
 
          'click a.create': function(e, tpl){
             e.preventDefault();
+            $("html, body").animate({
+                scrollTop: 0
+            }, 600);
+
             Session.set('isCreating', true);
          },
          'keyup #nama$sDatabase': function (e, tpl) {
@@ -583,13 +587,8 @@ elif [ "$1" == "server-newmodule" ]; then
          },
          'submit form.form-comments': function (e, tpl) {
             e.preventDefault();
-            let textComments = tpl.\$('input[name=\"comments'+this._id+'\"]').val();
-            if (textComments.length) {
-               addComments(this._id, textComments, $sDatabase);
-            }
-            e.target.reset();
-         }
-
+            flxcomments(e,tpl,$sDatabase);
+        }
 
       });
 
@@ -716,7 +715,7 @@ elif [ "$1" == "server-newmodule" ]; then
                       </div>
                    </div>
 
-                   {{>flxcomments}}
+                    {{>flxcomments isCommentOpen=false _id=_id comments=comments}}
 
                    {{#if isEditing}}
                       {{>blockModals}}
