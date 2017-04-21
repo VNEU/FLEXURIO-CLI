@@ -25,7 +25,7 @@ if [ "$UNAME" != "Linux" -a "$UNAME" != "Darwin" ] ; then
 fi
 
 # Install meteor
-# sudo curl https://install.meteor.com/ | sh
+sudo curl https://install.meteor.com/ | sh
 
 # Check pip python
 pip install ConfigParser

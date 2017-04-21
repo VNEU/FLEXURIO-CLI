@@ -546,6 +546,10 @@ elif [ "$1" == "server-newmodule" ]; then
          },
          'click a.deleteData': function(e, tpl){
             e.preventDefault();
+            $("html, body").animate({
+                scrollTop: 0
+            }, 600);
+
             Session.set('isDeleting', true);
             Session.set('dataDelete', Session.get('namaHeader').toLowerCase() + ' ' + this.nama$sDatabase);
             Session.set('idDeleting', this._id);
@@ -572,6 +576,10 @@ elif [ "$1" == "server-newmodule" ]; then
 
          'click a.editData': function(e, tpl){
             e.preventDefault();
+            $("html, body").animate({
+                scrollTop: 0
+            }, 600);
+
             Session.set('idEditing', this._id);
             Session.set('isEditing', true);
          },
