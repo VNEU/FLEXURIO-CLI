@@ -202,10 +202,10 @@ elif [ "$1" == "server-runProductions" ]; then
            cd "$LOKASINIPUN/FLEXURIO-CORE/" && \
             MONGO_URL=mongodb://$2/$3 meteor
         else
-            echo " Please Input DATABASE, Ex : ./flexurio server-runProductions localhost:10010 admin "
+            echo " Please Input DATABASE, Ex : ./flexurio server-runProductions username:password@localhost:10010 admin "
         fi
     else
-        echo " Please Input IP:PORT DATABASE, Ex : ./flexurio server-runProductions localhost:10010 admin "
+        echo " Please Input IP:PORT DATABASE, Ex : ./flexurio server-runProductions username:password@localhost:10010 admin "
     fi
 elif [ "$1" == "mobile-run" ]; then
    if [ "$2" == "android" ]; then
@@ -837,6 +837,7 @@ elif [ "$1" == "--help" ] || [ "$1" == "" ]; then
    echo " server-newmodule [foldername] [appname]  Create New Module with tamplate name appname at folder location foldername"
    echo " server-remove [package]                  Remove package with specific name"
    echo " server-run                               Run flexurio server - default at port 3000"
+   echo " server-runProductions                    Run flexurio server with database productions Ex : flexurio server-runProductions username:password@192.168.1.1:10010 admin"
    echo " server-update                            Update all - Framework & Package that use in your app"
    echo " server-update --all-packages             Update all package dependency"
    echo " server-update [package]                  Update package with specific name"
