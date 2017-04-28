@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 python -m py_compile flexurio_portal
 mv flexurio_portalc BUILD/flexurio_portal

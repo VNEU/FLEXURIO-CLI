@@ -1,0 +1,87 @@
+#!/bin/sh
+echo " ----------------------------------------------------------------------------------"
+echo " |                                     INSTALLER                                  |"
+echo " |     ___________     __________    _______    ___________     __    ______      |"
+echo " |    |   ______  |   |   ____   \  /  ___  |  |  ___   _  \   |  |  /  __  \     |"
+echo " |    |  |__   |  |   |  |__   \  \/  /  |  |  |  | |  |_)  |  |  | |  |  |  |    |"
+echo " |    |   __|  |  |   |   __|   >    <   |  |  |  | |      /   |  | |  |  |  |    |"
+echo " |    |  |     |   ----  |____ /  /\  \  |   --   | |  |\  \   |  | |   --   |    |"
+echo " |    |__|     |_________________/  \__\ |_______/  |__| \__\  |__|  \______/     |"
+echo " |                                                                                |"
+echo " ----------------------------------------------------------------------------------"
+echo ""
+
+
+UNAME=$(uname)
+if [ "$UNAME" ">" "MINGW" -a "$UNAME" "<" "MINGX" ] ; then
+    echo "Sorry, flexurio on Windows not ready"
+    exit
+fi
+if [ "$UNAME" != "Linux" -a "$UNAME" != "Darwin" ] ; then
+    echo "Sorry, this OS is not supported yet via this installer."
+    echo "For more details on supported platforms, see https://www.flexurio.com"
+    exit
+fi
+
+if [ "$1" == "" ]; then
+    echo ""
+    echo " Please input what you want install."
+    echo " -meteor                    Install Meteor.JS"
+    echo " -pip                       Install Python PIP"
+    echo " -rn                        Install React-Native"
+    echo ""
+    echo " -flx                       Install FLEXURIO"
+    echo " -all                       Install All packages that need on FLEXURIO"
+    echo ""
+fi
+
+
+if [ "$1" == "-meteor" ] || [ "$1" == "-all" ]; then
+    # Install meteor
+    sudo curl https://install.meteor.com/ | sh
+    echo ""
+    echo "Installation Meteor Complete."
+    echo ""
+fi
+if [ "$1" == "-pip" ] || [ "$1" == "-all" ]; then
+     curl https://bootstrap.pypa.io/get-pip.py | python
+
+    # Check pip python
+    pip install ConfigParser
+    pip install requests
+    echo ""
+    echo "Installation Python PIP Complete."
+    echo ""
+fi
+
+if [ "$1" == "-rn" ] || [ "$1" == "-all" ]; then
+    npm install -g react-native-cli
+    echo ""
+    echo "Installation React-Native Complete."
+    echo ""
+
+fi
+
+if [ "$1" == "-flx" ] || [ "$1" == "-all" ]; then
+    echo "Root user need to install Flexurio."
+
+    # Create destination folder
+    mkdir -p ~/.flexurio/
+    cp -R flexurio ~/.flexurio/
+    cp -R flexurio_config ~/.flexurio/
+    cp -R flexurio_portal ~/.flexurio/
+
+    sudo rm -R /usr/local/bin/flexurio
+    sudo ln -s ~/.flexurio/flexurio /usr/local/bin/flexurio
+    sudo chmod +x /usr/local/bin/flexurio
+    sudo chmod +x ~/.flexurio/flexurio
+
+    echo ""
+    echo "Installation Flexurio Complete."
+    echo ""
+
+fi
+
+
+# Exit from the script with success (0)
+exit 0

@@ -1,5 +1,4 @@
 [flx-config]
-server = http://localhost:3000/MenaraAPI/login/
+server = http://www.flexurio.com/MenaraAPI/login/
 id =
 token =
-

@@ -150,14 +150,9 @@ elif [ "$1" == "server-add" ]; then
       cd "$LOKASINIPUN/FLEXURIO-CORE/" && \
       meteor add $2
    fi
-elif [ "$1" == "server-install" ]; then
-   echo " Installing Flexurio Framework on server side . . . "
-   echo " Flexurio is framework that create by Y.N Pamungkas Jayuda Copyright (c) 2015 Thinkbuntu Indonesia "
-   echo " By install and using a free development of flexurio framework, you accept and agree to our terms and conditions ( See detail licence agreement ). This framework base on node, mongodb, osm, leaf.js, meteor, mongol, etc "
-   echo " Thanks for helping us with information about bug and improve idea.  "
-   echo " Matur Sembah Nuwun, Jayalah Indonesia, GBU"
-   cd "$LOKASINIPUN/FLEXURIO-CORE/" && \
-   sudo curl https://install.meteor.com/ | sh
+elif [ "$1" == "server-init" ]; then
+   echo " Bootstraping Flexurio Server side base on meteor . . . "
+   python ~/.flexurio/flexurio_portal serverinit
 elif [ "$1" == "mobile-install" ]; then
    echo " Installing Mobile Flexurio Framework . . . "
    echo " Flexurio is framework that create by Y.N Pamungkas Jayuda Copyright (c) 2015 Thinkbuntu Indonesia "
