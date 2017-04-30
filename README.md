@@ -24,7 +24,10 @@ options:
 
 ## CREATE APP
 
+### SERVER
 1. [CREATE NEW SERVER / WEB APP](https://github.com/VNEU/FLEXURIO-CLI/blob/master/doc/server_init.md)
-    a. [CREATE NEW MODULE](https://github.com/VNEU/FLEXURIO-CLI/blob/master/doc/server_createmodule.md)
-2. [CREATE NEW MOBILE APP](https://github.com/VNEU/FLEXURIO-CLI/blob/master/doc/mobile_init.md)
-    a. [CREATE NEW MODULE ON MOBILE APP](https://github.com/VNEU/FLEXURIO-CLI/blob/master/doc/mobile_createmodule.md)
+2. [CREATE NEW MODULE](https://github.com/VNEU/FLEXURIO-CLI/blob/master/doc/server_createmodule.md)
+
+### MOBILE
+1. [CREATE NEW MOBILE APP](https://github.com/VNEU/FLEXURIO-CLI/blob/master/doc/mobile_init.md)
+2. [CREATE NEW MODULE ON MOBILE APP](https://github.com/VNEU/FLEXURIO-CLI/blob/master/doc/mobile_createmodule.md)
