@@ -2,13 +2,13 @@
 Ease in generating code for your App. Flexurio help programmer write web, desktop & mobile app more simple base on node.js, meteor.js, electron, react-native & mongodb
 
 ## INSTALL
-1. Get installer :
+### Get installer :
 ```
 curl http://flexurio.com/init/install.html | sh
 
 ```
 
-1. Install Flexurio  :
+### Install Flexurio  :
 ```
 sudo ./install [options]
 
@@ -19,6 +19,13 @@ options:
 -rn                        Install React-Native
 -flx                       Install FLEXURIO
 -all                       Install All packages that need on FLEXURIO
+
+### Initial flexurio
+```
+flexurio init
+
+```
+Don't have an account? Sign up at http://wwww.flexurio.com
 
 
 
