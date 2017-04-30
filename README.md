@@ -24,9 +24,7 @@ options:
 
 ## CREATE APP
 
-1. [Stack Overflow][1] (number reference)
-2. [Stack Overflow][so] (tagged reference)
-3. [Stack Overflow](http://stackoverflow.com) (direct reference)
-
-[1]: http://stackoverflow.com
-[so]: http://stackoverflow.com
+1. [CREATE NEW SERVER / WEB APP](https://github.com/VNEU/FLEXURIO-CLI/blob/master/doc/server_init.md)
+    a. [CREATE NEW MODULE](https://github.com/VNEU/FLEXURIO-CLI/blob/master/doc/server_createmodule.md)
+2. [CREATE NEW MOBILE APP](https://github.com/VNEU/FLEXURIO-CLI/blob/master/doc/mobile_init.md)
+    a. [CREATE NEW MODULE ON MOBILE APP](https://github.com/VNEU/FLEXURIO-CLI/blob/master/doc/mobile_createmodule.md)
