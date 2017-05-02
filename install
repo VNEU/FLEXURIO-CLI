@@ -23,7 +23,7 @@ if [ "$UNAME" != "Linux" -a "$UNAME" != "Darwin" ] ; then
     exit
 fi
 
-if [ "$1" == "-meteor" ] || [ "$1" == "-all" ]; then
+if [ "$1" == "-meteor" || "$1" == "-all" ]; then
     sudo curl https://install.meteor.com/ | sh
     echo ""
     echo "Installation Meteor Complete."
