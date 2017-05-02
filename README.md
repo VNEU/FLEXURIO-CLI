@@ -10,7 +10,7 @@ curl http://flexurio.com/init/install.html | sh
 
 ### Install Flexurio  :
 ```
-sudo ./install [options]
+sudo bash ./install [options]
 
 ```
 options:
