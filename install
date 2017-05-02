@@ -23,42 +23,24 @@ if [ "$UNAME" != "Linux" -a "$UNAME" != "Darwin" ] ; then
     exit
 fi
 
-if [ "$1" == "" ]; then
-    echo ""
-    echo " Please input what you want install."
-    echo " -meteor                    Install Meteor.JS"
-    echo " -pip                       Install Python PIP"
-    echo " -rn                        Install React-Native"
-    echo ""
-    echo " -flx                       Install FLEXURIO"
-    echo " -all                       Install All packages that need on FLEXURIO"
-    echo ""
-fi
-
-
 if [ "$1" == "-meteor" ] || [ "$1" == "-all" ]; then
     sudo curl https://install.meteor.com/ | sh
     echo ""
     echo "Installation Meteor Complete."
     echo ""
-fi
-if [ "$1" == "-pip" ] || [ "$1" == "-all" ]; then
+elif [ "$1" == "-pip" ] || [ "$1" == "-all" ]; then
      curl https://bootstrap.pypa.io/get-pip.py | python
     pip install ConfigParser
     pip install requests
     echo ""
     echo "Installation Python PIP Complete."
     echo ""
-fi
-
-if [ "$1" == "-rn" ] || [ "$1" == "-all" ]; then
+elif [ "$1" == "-rn" ] || [ "$1" == "-all" ]; then
     npm install -g react-native-cli
     echo ""
     echo "Installation React-Native Complete."
     echo ""
-fi
-
-if [ "$1" == "-flx" ] || [ "$1" == "-all" ]; then
+elif [ "$1" == "-flx" ] || [ "$1" == "-all" ]; then
     echo "Root user need to install Flexurio."
     mkdir -p ~/.flexurio/
     cp -R flexurio ~/.flexurio/
@@ -75,8 +57,15 @@ if [ "$1" == "-flx" ] || [ "$1" == "-all" ]; then
     echo ""
     echo "Installation Flexurio Complete."
     echo ""
+else
+    echo ""
+    echo " Please input what you want install."
+    echo " -meteor                    Install Meteor.JS"
+    echo " -pip                       Install Python PIP"
+    echo " -rn                        Install React-Native"
+    echo ""
+    echo " -flx                       Install FLEXURIO"
+    echo " -all                       Install All packages that need on FLEXURIO"
+    echo ""
 fi
-
-
-# Exit from the script with success (0)
 exit 0
