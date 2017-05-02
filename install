@@ -37,7 +37,6 @@ fi
 
 
 if [ "$1" == "-meteor" ] || [ "$1" == "-all" ]; then
-    # Install meteor
     sudo curl https://install.meteor.com/ | sh
     echo ""
     echo "Installation Meteor Complete."
@@ -45,8 +44,6 @@ if [ "$1" == "-meteor" ] || [ "$1" == "-all" ]; then
 fi
 if [ "$1" == "-pip" ] || [ "$1" == "-all" ]; then
      curl https://bootstrap.pypa.io/get-pip.py | python
-
-    # Check pip python
     pip install ConfigParser
     pip install requests
     echo ""
@@ -59,32 +56,25 @@ if [ "$1" == "-rn" ] || [ "$1" == "-all" ]; then
     echo ""
     echo "Installation React-Native Complete."
     echo ""
-
 fi
 
 if [ "$1" == "-flx" ] || [ "$1" == "-all" ]; then
     echo "Root user need to install Flexurio."
-
-    # Create destination folder
     mkdir -p ~/.flexurio/
     cp -R flexurio ~/.flexurio/
     cp -R flexurio_config ~/.flexurio/
     cp -R flexurio_portal ~/.flexurio/
-
     sudo rm -R /usr/local/bin/flexurio
     sudo ln -s ~/.flexurio/flexurio /usr/local/bin/flexurio
     sudo chmod +x /usr/local/bin/flexurio
     sudo chmod +x ~/.flexurio/flexurio
-
     rm flexurio
     rm flexurio_portal
     rm flexurio_config
     rm install
-
     echo ""
     echo "Installation Flexurio Complete."
     echo ""
-
 fi
 
 
