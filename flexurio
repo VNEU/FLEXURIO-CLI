@@ -8,9 +8,8 @@ echo " |    |   __|  |  |   |   __|   >    <   |  |  |  | |      /   |  | |  |  
 echo " |    |  |     |   ----  |____ /  /\  \  |   --   | |  |\  \   |  | |   --   |    |"
 echo " |    |__|     |_________________/  \__\ |_______/  |__| \__\  |__|  \______/     |"
 echo " |                                                                                |"
-echo " |                         Ease in generating code for your App                   |"
-echo " |                                 Version : 1.0.1 Beta                           |"
-echo " |                                 Code Name : Exoplanet                          |"
+echo " |                        Ease in generating code for your App                    |"
+echo " |                           Version : 1.0.1 - Satunggal                          |"
 echo " ----------------------------------------------------------------------------------"
 
 LOKASINIPUN=$PWD
