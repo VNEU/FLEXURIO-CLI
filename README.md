@@ -13,12 +13,15 @@ curl http://flexurio.com/init/install.html | sh
 sudo bash ./install [options]
 
 ```
+
+```
 options:
 -meteor                    Install Meteor.JS
 -pip                       Install Python PIP
 -rn                        Install React-Native
 -flx                       Install FLEXURIO
 -all                       Install All packages that need on FLEXURIO
+```
 
 ### Initial flexurio
 ```
