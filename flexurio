@@ -542,9 +542,7 @@ elif [ "$1" == "server-newmodule" ]; then
          },
          'click a.deleteData': function(e, tpl){
             e.preventDefault();
-            $("html, body").animate({
-                scrollTop: 0
-            }, 600);
+            Scroll2Top();
 
             Session.set('isDeleting', true);
             Session.set('dataDelete', Session.get('namaHeader').toLowerCase() + ' ' + this.nama$sDatabase);
@@ -553,9 +551,7 @@ elif [ "$1" == "server-newmodule" ]; then
 
          'click a.create': function(e, tpl){
             e.preventDefault();
-            $("html, body").animate({
-                scrollTop: 0
-            }, 600);
+            Scroll2Top();
 
             Session.set('isCreating', true);
          },
@@ -804,6 +800,22 @@ elif [ "$1" == "server-newmodule" ]; then
     echo "ROUTES bootstraping success created . . . "
 
 fi
+elif [ "$1" == "create" ]; then
+    if [[ $2 = "" ]]; then
+        echo " Please input project name "
+    else
+        if [ -d "$2" ]; then
+            echo " Destination folder $2 already exists"
+        else
+            mkdir $2 && cd $2 && git clone https://github.com/VNEU/FLEXURIO-CORE.git && cd FLEXURIO-CORE && sudo rm -R .git
+        fi
+    fi
+elif [ "$1" == "mobile-init" ]; then
+    if [ -d "FLEXURIO-MOBILE" ]; then
+        echo " FLEXURIO-MOBILE already exists"
+    else
+        git clone https://github.com/VNEU/FLEXURIO-MOBILE.git && cd FLEXURIO-MOBILE && sudo rm -R .git
+    fi
 elif [ "$1" == "check" ]; then
     echo $LOKASINIPUN
 elif [ "$1" == "init" ]; then
@@ -817,7 +829,7 @@ elif [ "$1" == "--help" ] || [ "$1" == "" ]; then
    echo " nodeversion                              Get Node Version that use in flexurio"
    echo " ------------------------------------------------------------------------------------------------------------- "
    echo "  "
-   echo " SERVER OPTIONS : "
+   echo " CLI OPTIONS : "
    echo "  "
    echo " init                                     Initialing User ID flexurio"
    echo " create [project name]                    Create new flexurio project"
@@ -827,7 +839,7 @@ elif [ "$1" == "--help" ] || [ "$1" == "" ]; then
    echo "  "
    echo " SERVER OPTIONS : "
    echo "  "
-   echo " server-install                           Install framework that use at flexurio - base on node meteor "
+   echo " server-init                              Initial server side app - FLEXURIO-CORE "
    echo " server-add                               Add All minimum package that must have on flexurio"
    echo " server-add [package]                     Add package with specific name"
    echo " server-newmodule [foldername] [appname]  Create New Module with tamplate name appname at folder location foldername"
@@ -845,7 +857,7 @@ elif [ "$1" == "--help" ] || [ "$1" == "" ]; then
    echo "  "
    echo " MOBILE OPTIONS : "
    echo "  "
-   echo " mobile-install                           Install mobile framework that use at flexurio - base on nativescript"
+   echo " mobile-init                              Initial mobile app - FLEXURIO-MOBILE"
    echo " mobile-generate                          Generate iOS & Android files "
    echo " mobile-packager                          Run Packager server for mobile react-native"
    echo " mobile-run [type mobile]                 Run flexurio mobile on type that you want ( android / ios )"

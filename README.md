@@ -30,6 +30,12 @@ Don't have an account? Sign up at http://wwww.flexurio.com
 
 
 ## CREATE APP
+```
+flexurio create [Project Name]
+
+```
+
+
 
 ### SERVER
 1. [CREATE NEW SERVER / WEB APP](https://github.com/VNEU/FLEXURIO-CLI/blob/master/doc/server_init.md)
