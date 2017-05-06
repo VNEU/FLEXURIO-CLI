@@ -1,3 +1,3 @@
-# CREATE NEW MODULE APP
+# API USAGE
 
 Bact to [MENU TUTORIAL](https://vneu.github.io/FLEXURIO-CLI/doc/)
