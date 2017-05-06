@@ -10,7 +10,7 @@ curl http://flexurio.com/init/install.html | sh
 
 ### Install Flexurio  :
 ```
-sudo bash ./install [options]
+sudo ./install [options]
 
 ```
 
@@ -34,10 +34,19 @@ Don't have an account? Sign up at http://wwww.flexurio.com
 
 ## CREATE APP
 ```
-flexurio create [Project Name]
+$ flexurio create [Project Name]
 
 ```
 
+go to folder project & run flexurio
+
+```
+$ cd [Project Name]
+$ flexurio server-run
+
+```
+
+open your browser and visit : http://localhost:3000
 
 
 ### SERVER
