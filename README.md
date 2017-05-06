@@ -49,7 +49,7 @@ open your browser and visit : http://localhost:3000
 
 
 ### SERVER
-1. [CREATE NEW SERVER / WEB APP](https://vneu.github.io/FLEXURIO-CLI/doc/server_init)
+1. [FLEXURIO SERVER / WEB APP](https://vneu.github.io/FLEXURIO-CLI/doc/server_init)
 2. [CREATE NEW MODULE](https://vneu.github.io/FLEXURIO-CLI/doc/server_createmodule)
 3. [ADD PACKAGES](https://vneu.github.io/FLEXURIO-CLI/doc/server_addpackages)
 4. [DEPLOY YOUR APP](https://vneu.github.io/FLEXURIO-CLI/doc/server_deploy)
