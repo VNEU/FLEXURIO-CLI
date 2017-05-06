@@ -43,7 +43,6 @@ go to folder project & run flexurio
 ```
 $ cd [Project Name]
 $ flexurio server-run
-
 ```
 
 open your browser and visit : http://localhost:3000
@@ -57,3 +56,6 @@ open your browser and visit : http://localhost:3000
 ### MOBILE
 1. [CREATE NEW MOBILE APP](https://github.com/VNEU/FLEXURIO-CLI/blob/master/doc/mobile_init.md)
 2. [CREATE NEW MODULE ON MOBILE APP](https://github.com/VNEU/FLEXURIO-CLI/blob/master/doc/mobile_createmodule.md)
+
+### REST
+1. [CREATE NEW API](https://github.com/VNEU/FLEXURIO-CLI/blob/master/doc/api_create.md)
