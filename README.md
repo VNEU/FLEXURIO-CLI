@@ -49,13 +49,13 @@ open your browser and visit : http://localhost:3000
 
 
 ### SERVER
-1. [CREATE NEW SERVER / WEB APP](https://github.com/VNEU/FLEXURIO-CLI/blob/master/doc/server_init.md)
-2. [CREATE NEW MODULE](https://github.com/VNEU/FLEXURIO-CLI/blob/master/doc/server_createmodule.md)
-2. [DEPLOY YOUR APP](https://github.com/VNEU/FLEXURIO-CLI/blob/master/doc/server_deploy.md)
+1. [CREATE NEW SERVER / WEB APP](https://vneu.github.io/FLEXURIO-CLI/doc/server_init)
+2. [CREATE NEW MODULE](https://vneu.github.io/FLEXURIO-CLI/doc/server_createmodule)
+2. [DEPLOY YOUR APP](https://vneu.github.io/FLEXURIO-CLI/doc/server_deploy)
 
 ### MOBILE
-1. [CREATE NEW MOBILE APP](https://github.com/VNEU/FLEXURIO-CLI/blob/master/doc/mobile_init.md)
-2. [CREATE NEW MODULE ON MOBILE APP](https://github.com/VNEU/FLEXURIO-CLI/blob/master/doc/mobile_createmodule.md)
+1. [CREATE NEW MOBILE APP](https://vneu.github.io/FLEXURIO-CLI/doc/mobile_init)
+2. [CREATE NEW MODULE ON MOBILE APP](https://vneu.github.io/FLEXURIO-CLI/doc/mobile_createmodule)
 
 ### REST
-1. [CREATE NEW API](https://github.com/VNEU/FLEXURIO-CLI/blob/master/doc/api_create.md)
+1. [CREATE NEW API](https://vneu.github.io/FLEXURIO-CLI/doc/api_create)
