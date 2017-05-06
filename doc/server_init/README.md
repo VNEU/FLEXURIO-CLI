@@ -18,3 +18,6 @@ $ flexurio server-init
 ```
 
 that command will clone FLEXURIO-CORE to your project folder.
+
+
+Next to [DEPLOY YOUR APP](https://vneu.github.io/FLEXURIO-CLI/doc/server_deploy)

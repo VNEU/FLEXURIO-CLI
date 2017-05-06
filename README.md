@@ -51,7 +51,7 @@ open your browser and visit : http://localhost:3000
 ### SERVER
 1. [CREATE NEW SERVER / WEB APP](https://vneu.github.io/FLEXURIO-CLI/doc/server_init)
 2. [CREATE NEW MODULE](https://vneu.github.io/FLEXURIO-CLI/doc/server_createmodule)
-2. [DEPLOY YOUR APP](https://vneu.github.io/FLEXURIO-CLI/doc/server_deploy)
+3. [DEPLOY YOUR APP](https://vneu.github.io/FLEXURIO-CLI/doc/server_deploy)
 
 ### MOBILE
 1. [CREATE NEW MOBILE APP](https://vneu.github.io/FLEXURIO-CLI/doc/mobile_init)
@@ -59,3 +59,7 @@ open your browser and visit : http://localhost:3000
 
 ### REST
 1. [CREATE NEW API](https://vneu.github.io/FLEXURIO-CLI/doc/api_create)
+1. [USE YOUR API](https://vneu.github.io/FLEXURIO-CLI/doc/api_usage)
+
+### DESKTOP
+1. [BUILD DESKTOP APP](https://vneu.github.io/FLEXURIO-CLI/doc/desktop_init)
