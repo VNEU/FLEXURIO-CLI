@@ -4,7 +4,7 @@ Ease in generating code for your App. Flexurio help programmer write web, deskto
 ## INSTALL
 ### Get installer :
 ```
-curl http://flexurio.com/init/install.html | sh
+curl http://flexurio.com/install.html | sh
 
 ```
 
