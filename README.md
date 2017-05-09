@@ -44,9 +44,7 @@ go to folder project & run flexurio
 $ cd [Project Name]
 $ flexurio server-run
 ```
-
-open your browser and visit : http://localhost:3000
-
+open your browser and visit : http://localhost:3000 like meteor
 
 For all tutorial in this document, we will use scenario : We want create a **SYSTEM POINT OF SALES FOR BOOK STORE**.
 
