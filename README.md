@@ -48,6 +48,9 @@ $ flexurio server-run
 open your browser and visit : http://localhost:3000
 
 
+For all tutorial in this document, we will use scenario : We want create a **SYSTEM POINT OF SALES FOR BOOK STORE**. 
+
+
 ### SERVER
 1. [FLEXURIO SERVER / WEB APP](https://vneu.github.io/FLEXURIO-CLI/doc/server_init)
 2. [CREATE NEW MODULE](https://vneu.github.io/FLEXURIO-CLI/doc/server_createmodule)
