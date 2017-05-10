@@ -45,4 +45,6 @@ $ flexurio server-runProductions username:password@192.168.1.1:10010 admin
 open your browser and visit : http://localhost:3000
 
 
-Next to [DEPLOY YOUR APP](https://vneu.github.io/FLEXURIO-CLI/doc/server_deploy)
+Next to [CREATE NEW MODULE](https://vneu.github.io/FLEXURIO-CLI/doc/server_createmodule)
+
+Back to [HOME](https://vneu.github.io/FLEXURIO-CLI/)
