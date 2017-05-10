@@ -567,7 +567,7 @@ elif [ "$1" == "server-newmodule" ]; then
 
          'click a.editData': function(e, tpl){
             e.preventDefault();
-            $("html, body").animate({
+            $('html, body').animate({
                 scrollTop: 0
             }, 600);
 
@@ -605,8 +605,8 @@ elif [ "$1" == "server-newmodule" ]; then
          {
             $sKolomNew
             aktifYN: 1,
-            createByID: userid(),
-            createBy:username(),
+            createByID: UserID(),
+            createBy:UserName(),
             createAt: new Date()
          },
          function (err, id) {
@@ -633,8 +633,8 @@ elif [ "$1" == "server-newmodule" ]; then
          $sDatabase.update({_id:Session.get('idEditing')},
          { \$set:{
             $sKolomEdit
-            updateByID: userid(),
-            updateBy:username(),
+            updateByID: UserID(),
+            updateBy:UserName(),
             updateAt: new Date()
          }
       },
@@ -660,8 +660,8 @@ elif [ "$1" == "server-newmodule" ]; then
       $sDatabase.update({_id:Session.get('idDeleting')},
           { \$set:{
              aktifYN: 0,
-             deleteByID: userid(),
-             deleteBy:username(),
+             deleteByID: UserID(),
+             deleteBy:UserName(),
              deleteAt: new Date()
           }
        },
