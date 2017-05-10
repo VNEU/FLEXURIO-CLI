@@ -567,9 +567,7 @@ elif [ "$1" == "server-newmodule" ]; then
 
          'click a.editData': function(e, tpl){
             e.preventDefault();
-            $('html, body').animate({
-                scrollTop: 0
-            }, 600);
+            Scroll2Top();
 
             Session.set('idEditing', this._id);
             Session.set('isEditing', true);
