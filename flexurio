@@ -817,6 +817,8 @@ elif [ "$1" == "mobile-init" ]; then
     fi
 elif [ "$1" == "check" ]; then
     echo $LOKASINIPUN
+elif [ "$1" == "update" ]; then
+    curl http://flexurio.com/install.html | sh && sudo ./install -flx
 elif [ "$1" == "init" ]; then
     python ~/.flexurio/flexurio_portal login ~/.flexurio/flexurio_config
 elif [ "$1" == "--help" ] || [ "$1" == "" ]; then
@@ -830,6 +832,7 @@ elif [ "$1" == "--help" ] || [ "$1" == "" ]; then
    echo "  "
    echo " CLI OPTIONS : "
    echo "  "
+   echo " update                                   Update flexurio to latest release"
    echo " init                                     Initialing User ID flexurio"
    echo " create [project name]                    Create new flexurio project"
    echo " check                                    Check configurations"
