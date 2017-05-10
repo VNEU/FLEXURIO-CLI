@@ -50,6 +50,7 @@ elif [ "$1" == "-flx" ] || [ "$1" == "-all" ]; then
     sudo ln -s ~/.flexurio/flexurio /usr/local/bin/flexurio
     sudo chmod +x /usr/local/bin/flexurio
     sudo chmod +x ~/.flexurio/flexurio
+    sudo chmod 777 -R ~/.meteor*
     rm flexurio
     rm flexurio_portal
     rm flexurio_config
