@@ -23,4 +23,6 @@ Router.route('/bookcategory', function () {
 
 
 
+Next to [ADD PACKAGES](https://vneu.github.io/FLEXURIO-CLI/doc/server_addpackages)
+
 Bact to [HOME TUTORIAL](https://vneu.github.io/FLEXURIO-CLI)
