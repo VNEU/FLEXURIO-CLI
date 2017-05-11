@@ -51,20 +51,27 @@ open your browser and visit : http://localhost:3000
 For all tutorial in this document, we will use scenario : We want create a **SYSTEM POINT OF SALES FOR BOOK STORE**.
 
 
-### SERVER
+## SERVER
 1. [FLEXURIO SERVER / WEB APP](https://vneu.github.io/FLEXURIO-CLI/doc/server_init)
 2. [CREATE NEW MODULE](https://vneu.github.io/FLEXURIO-CLI/doc/server_createmodule)
 3. [NEW MENU](https://vneu.github.io/FLEXURIO-CLI/doc/server_menu)
 4. [ADD PACKAGES](https://vneu.github.io/FLEXURIO-CLI/doc/server_addpackages)
 5. [DEPLOY YOUR APP](https://vneu.github.io/FLEXURIO-CLI/doc/server_deploy)
 
-### MOBILE
+## MOBILE
 1. [CREATE NEW MOBILE APP](https://vneu.github.io/FLEXURIO-CLI/doc/mobile_init)
 2. [CREATE NEW MODULE ON MOBILE APP](https://vneu.github.io/FLEXURIO-CLI/doc/mobile_createmodule)
 
-### REST
+## REST
 1. [CREATE NEW API](https://vneu.github.io/FLEXURIO-CLI/doc/api_create)
-1. [USE YOUR API](https://vneu.github.io/FLEXURIO-CLI/doc/api_usage)
+2. [USE YOUR API](https://vneu.github.io/FLEXURIO-CLI/doc/api_usage)
 
-### DESKTOP
+## DESKTOP
 1. [BUILD DESKTOP APP](https://vneu.github.io/FLEXURIO-CLI/doc/desktop_init)
+
+
+
+
+## TODOS
+1. CLI - Mobile react-native
+2. CLI - electron
