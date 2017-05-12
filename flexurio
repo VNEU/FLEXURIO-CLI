@@ -66,7 +66,7 @@ elif [ "$1" == "desktop-init" ]; then
     sudo npm install -g electrify && cd "$LOKASINIPUN/FLEXURIO-CORE/" && meteor add  arboleya:electrify && git clone https://github.com/VNEU/FLEXURIO-DESKTOP.git
 elif [ "$1" == "desktop-run" ]; then
     echo " Flexurio run local development and desktop app that pair to localhost. . . "
-    [ cd "$LOKASINIPUN/FLEXURIO-CORE/" && electrify && cp -R FLEXURIO-DESKTOP/* FLEXURIO-CORE/.electrify/ ] || [ echo "You're not in a Flexurio project directory." ]
+    cp -R FLEXURIO-DESKTOP/* FLEXURIO-CORE/.electrify/ && cd "$LOKASINIPUN/FLEXURIO-CORE/" && electrify 
 elif [ "$1" == "desktop-build" ]; then
     echo " Flexurio build desktop app for this OS. . . "
     [ cp -R FLEXURIO-DESKTOP/* FLEXURIO-CORE/.electrify/ && cd "$LOKASINIPUN/FLEXURIO-CORE/" && electrify package -o ../BUILD/ ] || [ echo "You're not in a Flexurio project directory." ]
