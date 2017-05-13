@@ -6,7 +6,7 @@ import getpass
 import sys
 import datetime
 
-configFilePath = r'flexurio_config'
+configFilePath = r'~/.flexurio/flexurio_config'
 
 class flexurio():
     def __init__(self):
