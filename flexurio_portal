@@ -6,7 +6,7 @@ import getpass
 import sys
 import datetime
 
-configFilePath = r'~/.flexurio/flexurio_config'
+configFilePath = r'flexurio_config'
 
 class flexurio():
     def __init__(self):
@@ -42,6 +42,7 @@ class flexurio():
 
 if sys.argv[1] == "login":
     try:
+        configFilePath = sys.argv[2]
         Flexurio = flexurio()
         Flexurio.login()
     except KeyboardInterrupt:
@@ -49,6 +50,7 @@ if sys.argv[1] == "login":
         print "Canceled by user"
 if sys.argv[1] == "serverinit":
     try:
+        configFilePath = sys.argv[2]
         Flexurio = flexurio()
         Flexurio.login()
     except KeyboardInterrupt:
