@@ -63,7 +63,7 @@ elif [ "$1" == "desktop-init" ]; then
 
     echo " "
 
-    git clone https://github.com/VNEU/FLEXURIO-DESKTOP.git && sudo npm install -g electron && sudo npm install -g electrify && cd "$LOKASINIPUN/FLEXURIO-CORE/" && meteor add  arboleya:electrify && meteor npm install --save app browser-window electrify && electrify
+    git clone https://github.com/VNEU/FLEXURIO-DESKTOP.git && npm install -g electrify && cd "$LOKASINIPUN/FLEXURIO-CORE/" && meteor add  arboleya:electrify && meteor npm install --save app browser-window electrify && electrify
 elif [ "$1" == "desktop-run" ]; then
     echo " Flexurio run local development and desktop app that pair to localhost. . . "
     if [ -d "FLEXURIO-CORE/.electrify" ]; then
