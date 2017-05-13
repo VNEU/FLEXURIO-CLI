@@ -29,7 +29,12 @@ if [ "$1" == "-meteor" ] || [ "$1" == "-all" ]; then
     echo "Installation Meteor Complete."
     echo ""
 elif [ "$1" == "-pip" ] || [ "$1" == "-all" ]; then
-    curl https://bootstrap.pypa.io/get-pip.py | python
+    if [ "$UNAME" == "Linux" ] ; then
+        sudo apt-get install python-pip
+    fi
+    if [ "$UNAME" == "Darwin" ] ; then
+        curl https://bootstrap.pypa.io/get-pip.py | python
+    fi
     pip install ConfigParser
     pip install requests
     echo ""
