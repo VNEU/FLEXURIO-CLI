@@ -162,7 +162,9 @@ elif [ "$1" == "server-add" ]; then
    fi
 elif [ "$1" == "server-init" ]; then
    echo " Bootstraping Flexurio Server side base on meteor . . . "
-   python ~/.flexurio/flexurio_portal serverinit
+   python ~/.flexurio/flexurio_portal serverinit ~/.flexurio/flexurio_config
+   git clone https://github.com/VNEU/FLEXURIO-CORE.git
+   cd FLEXURIO-CORE && sudo rm -R .git
 elif [ "$1" == "mobile-init" ]; then
     if [ -d "FLEXURIO-MOBILE" ]; then
         echo " FLEXURIO-MOBILE already exists"

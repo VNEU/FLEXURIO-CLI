@@ -56,4 +56,4 @@ if sys.argv[1] == "serverinit":
     except KeyboardInterrupt:
         print "Canceled by user"
 else:
-    print "Do you really ? "
+    print "Thanks Bro, Jayalah Indonesia"
