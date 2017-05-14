@@ -47,6 +47,11 @@ $ flexurio server-run
 
 open your browser and visit : http://localhost:3000
 
+## DEFAULT USERNAME & PASSWORD
+USERNAME : admin@flexurio.com
+PASSWORD : flx.indo
+
+
 
 For all tutorial in this document, we will use scenario : We want create a **SYSTEM POINT OF SALES FOR BOOK STORE**.
 
