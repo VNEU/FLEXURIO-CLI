@@ -24,13 +24,13 @@ if [ "$UNAME" != "Linux" -a "$UNAME" != "Darwin" ] ; then
 fi
 
 if [ "$1" == "-meteor" ] || [ "$1" == "-all" ]; then
-    sudo curl https://install.meteor.com/ | sh
+    curl https://install.meteor.com/ | sh
     echo ""
     echo "Installation Meteor Complete."
     echo ""
 elif [ "$1" == "-pip" ] || [ "$1" == "-all" ]; then
     if [ "$UNAME" == "Linux" ] ; then
-        sudo apt-get install python-pip
+        apt-get install python-pip
     fi
     if [ "$UNAME" == "Darwin" ] ; then
         curl https://bootstrap.pypa.io/get-pip.py | python
@@ -51,11 +51,11 @@ elif [ "$1" == "-flx" ] || [ "$1" == "-all" ]; then
     cp -R flexurio ~/.flexurio/
     cp -R flexurio_config ~/.flexurio/
     cp -R flexurio_portal ~/.flexurio/
-    sudo rm -R /usr/local/bin/flexurio
-    sudo ln -s ~/.flexurio/flexurio /usr/local/bin/flexurio
-    sudo chmod +x /usr/local/bin/flexurio
-    sudo chmod +x ~/.flexurio/flexurio
-    sudo chmod 777 -R ~/.meteor*
+    rm -R /usr/local/bin/flexurio
+    ln -s ~/.flexurio/flexurio /usr/local/bin/flexurio
+    chmod +x /usr/local/bin/flexurio
+    chmod +x ~/.flexurio/flexurio
+    chmod 777 -R ~/.meteor*
     rm flexurio
     rm flexurio_portal
     rm flexurio_config

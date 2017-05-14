@@ -1,7 +1,7 @@
 #!/bin/bash
 
 LOKASINIPUN=$PWD
-VERSION="1.0.4"
+VERSION="1.0.5"
 CODENAME="Satunggal"
 
 echo " ------------------------------------------------------------------------------"
@@ -63,7 +63,7 @@ elif [ "$1" == "desktop-init" ]; then
     echo " "
     echo " $ npm install -g electron "
 
-    sudo rm -r FLEXURIO-DESKTOP
+     rm -r FLEXURIO-DESKTOP
     git clone https://github.com/VNEU/FLEXURIO-DESKTOP.git
     npm install -g electrify
     cd "$LOKASINIPUN/FLEXURIO-CORE/" && meteor add  arboleya:electrify && meteor npm install --save app browser-window electrify && electrify
@@ -164,12 +164,13 @@ elif [ "$1" == "server-init" ]; then
    echo " Bootstraping Flexurio Server side base on meteor . . . "
    python ~/.flexurio/flexurio_portal serverinit ~/.flexurio/flexurio_config
    git clone https://github.com/VNEU/FLEXURIO-CORE.git
-   cd FLEXURIO-CORE && sudo rm -R .git
+   cd FLEXURIO-CORE &&  rm -R .git
 elif [ "$1" == "mobile-init" ]; then
     if [ -d "FLEXURIO-MOBILE" ]; then
         echo " FLEXURIO-MOBILE already exists"
     else
-        git clone https://github.com/VNEU/FLEXURIO-MOBILE.git && cd FLEXURIO-MOBILE && sudo rm -R .git &&  echo " Installing Mobile Flexurio Framework . . . " sudo npm install -g react-native-cli && npm install
+        git clone https://github.com/VNEU/FLEXURIO-MOBILE.git
+        cd FLEXURIO-MOBILE &&  rm -R .git &&  echo " Installing Mobile Flexurio Framework . . . " &&  npm install -g react-native-cli && npm install
     fi
 elif [ "$1" == "mobile-avd" ]; then
     if [[ $2 = "--list" ]]; then
@@ -812,13 +813,13 @@ elif [ "$1" == "create" ]; then
         if [ -d "$2" ]; then
             echo " Destination folder $2 already exists"
         else
-            mkdir $2 && cd $2 && git clone https://github.com/VNEU/FLEXURIO-CORE.git && cd FLEXURIO-CORE && sudo rm -R .git
+            mkdir $2 && cd $2 && git clone https://github.com/VNEU/FLEXURIO-CORE.git && cd FLEXURIO-CORE &&  rm -R .git
         fi
     fi
 elif [ "$1" == "check" ]; then
     echo $LOKASINIPUN
 elif [ "$1" == "update" ]; then
-    curl http://flexurio.com/install.html | sh && sudo ./install -flx
+    curl http://flexurio.com/install.html | sh &&  ./install -flx
 elif [ "$1" == "init" ]; then
     python ~/.flexurio/flexurio_portal login ~/.flexurio/flexurio_config
 elif [ "$1" == "--help" ] || [ "$1" == "" ]; then
