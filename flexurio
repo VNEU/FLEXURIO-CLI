@@ -199,13 +199,13 @@ elif [ "$1" == "server-reset" ]; then
 elif [ "$1" == "server-run" ]; then
    echo " Starting Flexurio server . . . "
    cd "$LOKASINIPUN/FLEXURIO-CORE/" && \
-   meteor
+   meteor --verbose
 elif [ "$1" == "server-runProductions" ]; then
     if [[ $2 = *[!\ ]* ]]; then
         if [[ $3 = *[!\ ]* ]]; then
            echo " Starting Flexurio server with Production MONGODB . . . "
            cd "$LOKASINIPUN/FLEXURIO-CORE/" && \
-            MONGO_URL=mongodb://$2/$3 meteor
+            MONGO_URL=mongodb://$2/$3 meteor --verbose
         else
             echo " Please Input DATABASE, Ex : ./flexurio server-runProductions username:password@localhost:10010 admin "
         fi
