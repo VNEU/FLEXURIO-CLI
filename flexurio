@@ -879,6 +879,6 @@ elif [ "$1" == "--help" ] || [ "$1" == "" ]; then
    echo " Usage: flexurio [type:server/mobile]-[options]"
    echo " For more help, see 'sh flexurio --help'"
 else
-   echo "Usage: sh flexurio [type:server/mobile]-[options]"
+   echo "Usage: flexurio [type:server/mobile]-[options]"
    echo "For more help, see 'flexurio --help'"
 fi
