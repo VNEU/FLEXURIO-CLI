@@ -820,6 +820,12 @@ elif [ "$1" == "create" ]; then
 elif [ "$1" == "check" ]; then
     echo $LOKASINIPUN
 elif [ "$1" == "update" ]; then
+    if [ $(id -u) != 0 ]; then
+         echo "You're not root"
+         echo "Root user need to update Flexurio. Please use sudo "
+         exit
+    fi
+
     curl http://flexurio.com/install.html | sh &&  ./install -flx
 elif [ "$1" == "init" ]; then
     python ~/.flexurio/flexurio_portal login ~/.flexurio/flexurio_config
