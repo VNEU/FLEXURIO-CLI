@@ -1,7 +1,7 @@
 #!/bin/bash
 
 LOKASINIPUN=$PWD
-VERSION="1.0.6"
+VERSION="1.0.7"
 CODENAME="Satunggal"
 
 
@@ -821,12 +821,12 @@ elif [ "$1" == "check" ]; then
     echo $LOKASINIPUN
 elif [ "$1" == "update" ]; then
     if [ $(id -u) != 0 ]; then
-         echo "You're not root"
+         echo "You're not root "
          echo "Root user need to update Flexurio. Please use sudo "
          exit
+    else
+      curl http://flexurio.com/install.html | sh &&  ./install -flx
     fi
-
-    curl http://flexurio.com/install.html | sh &&  ./install -flx
 elif [ "$1" == "init" ]; then
     python ~/.flexurio/flexurio_portal login ~/.flexurio/flexurio_config
 elif [ "$1" == "--help" ] || [ "$1" == "" ]; then
