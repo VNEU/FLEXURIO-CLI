@@ -4,6 +4,7 @@ LOKASINIPUN=$PWD
 VERSION="1.0.5"
 CODENAME="Satunggal"
 
+
 echo " ------------------------------------------------------------------------------"
 echo " |                      Ease in generating code for your App                  |"
 echo " |   ___________     __________    _______    ___________     __    ______    |"

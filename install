@@ -46,7 +46,12 @@ elif [ "$1" == "-rn" ] || [ "$1" == "-all" ]; then
     echo "Installation React-Native Complete."
     echo ""
 elif [ "$1" == "-flx" ] || [ "$1" == "-all" ]; then
-    echo "Root user need to install Flexurio."
+    if [ $(id -u) != 0 ]; then
+         echo "You're not root"
+         echo "Root user need to install Flexurio. Please use sudo "
+         exit
+    fi
+
     mkdir -p ~/.flexurio/
     cp -R flexurio ~/.flexurio/
     cp -R flexurio_config ~/.flexurio/
