@@ -1,7 +1,7 @@
 #!/bin/bash
 
 LOKASINIPUN=$PWD
-VERSION="1.0.7"
+VERSION="1.0.8"
 CODENAME="Satunggal"
 
 
@@ -490,13 +490,6 @@ elif [ "$1" == "server-newmodule" ]; then
                 return isAdminActions(Session.get('sURLMenu'), 'PRINT');
             },
 
-        isLockMenu:function () {
-            if(Session.get('lockMenu')){
-                return 'col-md-9 col-md-offset-3';
-            } else {
-                return '';
-            };
-        },
          sTinggiPopUp: function () {
             return 0.6*(\$(window).height());
          },
