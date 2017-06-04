@@ -28,7 +28,7 @@ if [ "$1" == "-meteor" ] || [ "$1" == "-all" ]; then
     echo ""
     echo "Installation Meteor Complete."
     echo ""
-    chmod -R 777 ~/.meteor
+    chmod -R +xrw ~/.meteor
 elif [ "$1" == "-pip" ] || [ "$1" == "-all" ]; then
     if [ "$UNAME" == "Linux" ] ; then
         apt-get install python-pip
