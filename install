@@ -61,7 +61,11 @@ elif [ "$1" == "-flx" ] || [ "$1" == "-all" ]; then
     ln -s ~/.flexurio/flexurio /usr/local/bin/flexurio
     chmod +x /usr/local/bin/flexurio
     chmod +x ~/.flexurio/flexurio
-    chmod 777 -R ~/.meteor*
+
+    echo ""
+    echo "alowing access meteor"
+    echo ""
+    chmod -R +xrw ~/.meteor
     rm flexurio
     rm flexurio_portal
     rm flexurio_config
