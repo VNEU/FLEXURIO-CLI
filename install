@@ -63,7 +63,7 @@ elif [ "$1" == "-flx" ] || [ "$1" == "-all" ]; then
     chmod +x ~/.flexurio/flexurio
 
     echo ""
-    echo "alowing access meteor"
+    echo "Please wait a moment, open access to meteors, mongodb, react, etc. Do not close or cancel this screen"
     echo ""
     chmod -R +xrw ~/.meteor
     rm flexurio

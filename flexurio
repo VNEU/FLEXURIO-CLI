@@ -1,7 +1,7 @@
 #!/bin/bash
 
 LOKASINIPUN=$PWD
-VERSION="1.0.9"
+VERSION="1.1.0"
 CODENAME="Satunggal"
 
 
@@ -233,7 +233,7 @@ elif [ "$1" == "server-update" ]; then
       cd "$LOKASINIPUN/FLEXURIO-CORE/" && \
       meteor update
    else
-      if ["$2" == "--all-packages"]; then
+      if [ "$2" == "--all-packages" ]; then
          echo " Updating all package on server . . . "
          cd "$LOKASINIPUN/FLEXURIO-CORE/" && \
          meteoer update --all-packages
