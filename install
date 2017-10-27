@@ -54,9 +54,16 @@ elif [ "$1" == "-flx" ] || [ "$1" == "-all" ]; then
     fi
 
     mkdir -p ~/.flexurio/
-    cp -R flexurio ~/.flexurio/
     cp -R flexurio_config ~/.flexurio/
     cp -R flexurio_portal ~/.flexurio/
+
+    cp -R flexurio_theme_bootstrap.sh ~/.flexurio/flexurio_theme_bootstrap
+    chmod +x ~/.flexurio/flexurio_theme_bootstrap
+
+    cp -R flexurio_theme_materialize.sh ~/.flexurio/flexurio_theme_materialize
+    chmod +x ~/.flexurio/flexurio_theme_materialize
+
+    cp -R flexurio.sh ~/.flexurio/flexurio
     rm -R /usr/local/bin/flexurio
     ln -s ~/.flexurio/flexurio /usr/local/bin/flexurio
     chmod +x /usr/local/bin/flexurio
@@ -65,11 +72,11 @@ elif [ "$1" == "-flx" ] || [ "$1" == "-all" ]; then
     echo ""
     echo "Please wait a moment, open access to meteors, mongodb, react, etc. Do not close or cancel this screen"
     echo ""
-    chmod -R +xrw ~/.meteor
-    rm flexurio
-    rm flexurio_portal
-    rm flexurio_config
-    rm install
+    # chmod -R +xrw ~/.meteor
+    # rm flexurio
+    # rm flexurio_portal
+    # rm flexurio_config
+    # rm install
     echo ""
     echo "Installation Flexurio Complete."
     echo ""
