@@ -180,7 +180,7 @@ if [ "$1" == "server-newmodule" ]; then
 
        'click a.create': function(e, tpl){
           e.preventDefault();
-          $('#modal_woTipe').modal('show')
+          \$('#modal_$3').modal('show')
        },
        'keyup #nama$sDatabase': function (e, tpl) {
            e.preventDefault();
@@ -206,7 +206,7 @@ if [ "$1" == "server-newmodule" ]; then
           e.preventDefault();
           $sDOMEdit
           Session.set('idEditing', this._id);
-          $('#modal_woTipe').modal('show')
+          \$('#modal_$3').modal('show')
        },
     });
 
@@ -338,7 +338,7 @@ if [ "$1" == "server-newmodule" ]; then
         </div>
 
 
-        <div class='modal_woTipe modal' id='modal_woTipe' name='modal_woTipe'>
+        <div class='modal_$3 modal' id='modal_$3' name='modal_$3'>
             <div class='modal-dialog' role='document'>
                 <div class='modal-content'>
                     <div class='modal-body'>
