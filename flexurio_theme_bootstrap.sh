@@ -199,7 +199,7 @@ if [ "$1" == "server-newmodule" ]; then
             } else {
                 insert$sDatabase(tpl);
             }
-
+          \$('#modal_$3').modal('hide')
        },
 
        'click a.editData': function(e, tpl){
