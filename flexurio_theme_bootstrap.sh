@@ -169,13 +169,13 @@ if [ "$1" == "server-newmodule" ]; then
           e.preventDefault();
           delete$sDatabase();
           FlashMessages.sendWarning('Attention, ' + Session.get('dataDelete') + ' successfully DELETE !');
-          $('#modal_formDeleting').modal('hide');
+          \$('#modal_formDeleting').modal('hide');
        },
        'click a.deleteData': function(e, tpl){
           e.preventDefault();
           Session.set('dataDelete', Session.get('namaHeader').toLowerCase() + ' ' + this.nama$sDatabase);
           Session.set('idDeleting', this._id);
-          $('#modal_formDeleting').modal('show');
+          \$('#modal_formDeleting').modal('show');
        },
 
        'click a.create': function(e, tpl){
