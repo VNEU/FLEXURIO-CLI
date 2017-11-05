@@ -290,13 +290,16 @@ elif [ "$1" == "create" ]; then
     elif [ "$3" == "" ]; then
        echo " Please input templating name ( bootstrap / materialize )"
     else
-        THEME=$3 | awk '{print toupper($0)}'
-        if [ -d "$2" ]; then
-            echo " Destination folder $2 already exists"
-        else
-            mkdir $2
-            git clone https://github.com/VNEU/FLEXURIO-$THEME.git $2/FLEXURIO-CORE
-            sudo rm -R $2/FLEXURIO-CORE/.git
+        if [[ $3 = "bootstrap" ]]; then
+            if [ -d "$2" ]; then
+                echo " Destination folder $2 already exists"
+            else
+                mkdir $2
+                git clone https://github.com/VNEU/FLEXURIO-BOOTSTRAP.git $2/FLEXURIO-CORE
+                sudo rm -R $2/FLEXURIO-CORE/.git
+            fi
+        elif [ "$3" == "materialize" ]; then
+            echo " Please contact nunung.pamungkas@vneu.co.id for licence"
         fi
     fi
 elif [ "$1" == "check" ]; then
@@ -323,7 +326,7 @@ elif [ "$1" == "--help" ] || [ "$1" == "" ]; then
    echo "  "
    echo " update                               Update flexurio to latest release"
    echo " init                                 Initialing User ID flexurio"
-   echo " create [project name]                Create new flexurio project"
+   echo " create [project name] [theme]        Create new flexurio project"
    echo " check                                Check configurations"
    echo "  "
    echo " ------------------------------------------------------------------------------- "
