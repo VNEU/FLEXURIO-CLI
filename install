@@ -57,8 +57,8 @@ elif [ "$1" == "-flx" ] || [ "$1" == "-all" ]; then
     cp -R flexurio_config ~/.flexurio/
     cp -R flexurio_portal ~/.flexurio/
 
-    cp -R flexurio_theme_bootstrap.sh ~/.flexurio/flexurio_theme_bootstrap
-    chmod +x ~/.flexurio/flexurio_theme_bootstrap
+    sudo cp -R flexurio_theme_bootstrap.sh ~/.flexurio/flexurio_theme_bootstrap
+    sudo chmod +x ~/.flexurio/flexurio_theme_bootstrap
 
     cp -R flexurio_theme_materialize.sh ~/.flexurio/flexurio_theme_materialize
     chmod +x ~/.flexurio/flexurio_theme_materialize

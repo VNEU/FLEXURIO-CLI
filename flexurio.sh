@@ -307,7 +307,7 @@ elif [ "$1" == "update" ]; then
          echo "Root user need to update Flexurio. Please use sudo "
          exit
     else
-      curl http://flexurio.com/install.html | sh &&  ./install -flx
+      curl https://flexurio.com/install.html | sh &&  ./install -flx
     fi
 elif [ "$1" == "init" ]; then
     python ~/.flexurio/flexurio_portal login ~/.flexurio/flexurio_config
@@ -333,7 +333,7 @@ elif [ "$1" == "--help" ] || [ "$1" == "" ]; then
    echo " server-init                          Initial server side app - FLEXURIO-CORE "
    echo " server-add                           Add All minimum package that must have"
    echo " server-add [package]                 Add package with specific name"
-   echo " server-newmodule [folder] [appname]  Create New Module with name appname at foldername"
+   echo " server-newmodule [fldr][name][tmplt] Create New Module with name appname at foldername"
    echo " server-remove [package]              Remove package with specific name"
    echo " server-run                           Run flexurio server - default at port 3000"
    echo " server-runProductions                Run flexurio server with database productions "

@@ -10,16 +10,13 @@ if [ "$1" == "server-newmodule" ]; then
 
     sKK=$'"'
     sNew=$""
-    sEdit=$""
     sKolomNew=$""
     sKolomEdit=$""
     sCekAda=$""
     sCekAdaData=$""
-    sCekEdit=$""
-    sCekEditData=$""
+    sDOMEdit=$""
 
     sHTMLDisplay=$""
-    sHTMLEdit=$""
     sHTMLNew=$""
 
     sFILTER=$""
@@ -49,16 +46,15 @@ if [ "$1" == "server-newmodule" ]; then
        {$namakolomL: { \$regex : new RegExp(textSearch, 'i') }},
        "
 
+       sDOMEdit=$sDOMEdit$"
+       document.getElementById('$namakolomL').value = this.$sNamaNew;
+       "
+
        sNew=$sNew$"
        let $sNamaNew = tpl.\$('input[name=$sNamaNewKK]').val();
        "
 
-       sEdit=$sEdit$"
-       let $sNamaEdit = tpl.\$('input[name=$sNamaEditKK]').val();
-       "
-
        sCekAda=$sCekAda$"!adaDATA($sNamaNew) | "
-       sCekEdit=$sCekEdit$"!adaDATA($sNamaEdit) | "
 
        sKolomNew=$sKolomNew$"
        $namakolomL: $sNamaNew,
@@ -70,27 +66,14 @@ if [ "$1" == "server-newmodule" ]; then
 
        sHTMLDisplay=$sHTMLDisplay$" {{$namakolomL}} - "
 
-       sHTMLEdit=$sHTMLEdit$"
-
-       <div class='form-group label-floating has-info col-md-6'>
-       <label for='$sNamaEdit' class='control-label'>$namakolomU $sDatabase</label>
-       <input name='$sNamaEdit' id='$sNamaEdit' type='text' class='form-control' style='font-size:larger;' value='{{$namakolomL}}'>
-       </div>
-
-       "
-
        sHTMLNew=$sHTMLNew$"
-
-       <div class='form-group label-floating has-info col-md-6'>
-       <label for='$sNamaNew' class='control-label'>$namakolomU $sDatabase</label>
-       <input name='$sNamaNew' id='$sNamaNew' type='text' class='form-control' style='font-size:larger;'>
-       </div>
+        <label for='$sNamaNew' class='control-label'>$namakolomU $sDatabase</label>
+        <input name='$sNamaNew' id='$sNamaNew' type='text' class='form-control' style='font-size:larger;' autofocus>
        "
     done
 
     sHTMLDisplayView=$(sed 's/.\{2\}$//' <<< "$sHTMLDisplay")
     sCekAdaData=$(sed 's/.\{2\}$//' <<< "$sCekAda")
-    sCekEditData=$(sed 's/.\{2\}$//' <<< "$sCekEdit")
 
     [ -d "FLEXURIO-CORE/client/views/$2" ] || mkdir "FLEXURIO-CORE/client/views/$2"
 
@@ -115,8 +98,6 @@ if [ "$1" == "server-newmodule" ]; then
        Session.set('textSearch', '');
        Session.set('namaHeader', 'DATA $sDatabase');
        Session.set('dataDelete', '');
-       Session.set('isCreating', false);
-       Session.set('isDeleting', false);
 
        this.autorun(function () {
               subscribtion('$3', Session.get('oFILTERS'), Session.get('oOPTIONS'), Session.get('limit'));
@@ -128,39 +109,30 @@ if [ "$1" == "server-newmodule" ]; then
       });
 
       Template.$3.helpers({
-          isLockMenu: function () {
-              return isLockMenu();
-          },
+        isLockMenu: function () {
+          return isLockMenu();
+        },
 
-          isActionADD: function () {
-              return isAdminActions(Session.get('sURLMenu'), 'ADD');
-          },
+        isActionADD: function () {
+          return isAdminActions(Session.get('sURLMenu'), 'ADD');
+        },
 
-          isActionEDIT: function () {
-              return isAdminActions(Session.get('sURLMenu'), 'EDIT');
-          },
+        isActionEDIT: function () {
+          return isAdminActions(Session.get('sURLMenu'), 'EDIT');
+        },
 
-          isActionDELETE: function () {
-              return isAdminActions(Session.get('sURLMenu'), 'DELETE');
-          },
+        isActionDELETE: function () {
+          return isAdminActions(Session.get('sURLMenu'), 'DELETE');
+        },
 
-          isActionPRINT: function () {
-              return isAdminActions(Session.get('sURLMenu'), 'PRINT');
-          },
+        isActionPRINT: function () {
+          return isAdminActions(Session.get('sURLMenu'), 'PRINT');
+        },
 
-       sTinggiPopUp: function () {
+        sTinggiPopUp: function () {
           return 0.6*(\$(window).height());
-       },
-       isEditing: function() {
-          return Session.get('idEditing') == this._id;
-       },
-       isDeleting: function() {
-          return Session.get('isDeleting');
-       },
-       isCreating: function() {
-          return Session.get('isCreating');
-       },
-       $3s: function() {
+        },
+        $3s: function() {
           let textSearch = '';
           if(adaDATA(Session.get('textSearch'))) {
              textSearch = Session.get('textSearch').replace('#', '').trim();
@@ -183,72 +155,58 @@ if [ "$1" == "server-newmodule" ]; then
               oFILTERS,
               oOPTIONS
           );
-       }
+        }
     });
 
     Template.$3.events({
        'click a.cancel': function(e, tpl){
           e.preventDefault();
-          Session.set('isCreating', false);
-          Session.set('isEditing', false);
           Session.set('idEditing', '');
-          Session.set('isDeleting', false);
        },
 
        'click a.deleteDataOK': function(e, tpl){
           e.preventDefault();
           delete$sDatabase();
           FlashMessages.sendWarning('Attention, ' + Session.get('dataDelete') + ' successfully DELETE !');
-          Session.set('isDeleting', false);
+          $("#modal_formDeleting").modal('hide');
        },
        'click a.deleteData': function(e, tpl){
           e.preventDefault();
-          Scroll2Top();
-
-          Session.set('isDeleting', true);
           Session.set('dataDelete', Session.get('namaHeader').toLowerCase() + ' ' + this.nama$sDatabase);
           Session.set('idDeleting', this._id);
+          $("#modal_formDeleting").modal('show');
        },
 
        'click a.create': function(e, tpl){
           e.preventDefault();
-          Scroll2Top();
-
-          Session.set('isCreating', true);
+          $("#modal_woTipe").modal('show')
        },
        'keyup #nama$sDatabase': function (e, tpl) {
-          e.preventDefault();
-          if (e.keyCode == 13) {
-             insert$sDatabase(tpl);
-          }
+           e.preventDefault();
+           if (e.keyCode == 13) {
+               if (adaDATA(Session.get('idEditing'))) {
+                   update$sDatabase(tpl);
+               } else {
+                   insert$sDatabase(tpl);
+               }
+           }
        },
        'click a.save': function(e, tpl){
-          e.preventDefault();
-          insert$sDatabase(tpl);
+            e.preventDefault();
+            if (adaDATA(Session.get('idEditing'))) {
+                update$sDatabase(tpl);
+            } else {
+                insert$sDatabase(tpl);
+            }
+
        },
 
        'click a.editData': function(e, tpl){
           e.preventDefault();
-          Scroll2Top();
-
+          $sDOMEdit
           Session.set('idEditing', this._id);
-          Session.set('isEditing', true);
+          $("#modal_woTipe").modal('show')
        },
-       'keyup #namaEdit$sDatabase': function (e, tpl) {
-          e.preventDefault();
-          if (e.keyCode == 13) {
-             update$sDatabase(tpl);
-          }
-       },
-       'click a.saveEDIT': function(e, tpl){
-          e.preventDefault();
-          update$sDatabase(tpl);
-       },
-       'submit form.form-comments': function (e, tpl) {
-          e.preventDefault();
-          flxcomments(e,tpl,$sDatabase);
-      }
-
     });
 
 
@@ -283,16 +241,16 @@ if [ "$1" == "server-newmodule" ]; then
 
     update$sDatabase = function (tpl) {
 
-       $sEdit
+        $sNew
 
-       if($sCekEditData) {
+       if($sCekAdaData) {
           FlashMessages.sendWarning('Please complete all of the data to be . . .');
           return;
        }
 
        $sDatabase.update({_id:Session.get('idEditing')},
        { \$set:{
-          $sKolomEdit
+          $sKolomNew
           updateByID: UserID(),
           updateBy:UserName(),
           updateAt: new Date()
@@ -303,7 +261,6 @@ if [ "$1" == "server-newmodule" ]; then
           FlashMessages.sendWarning('Sorry, Data could not be saved - Please repeat again.');
        } else {
           Session.set('idEditing', '');
-          Session.set('isEditing', false);
           FlashMessages.sendSuccess('Thanks, your data is successfully saved');
        }
     }
@@ -347,6 +304,7 @@ if [ "$1" == "server-newmodule" ]; then
 
     <template name='$3'>
      <div class='container-fluid app'>
+        {{>formDeleting}}
         {{>utama}}
         {{>menuSearch}}
         {{#if isActionADD}}
@@ -372,42 +330,28 @@ if [ "$1" == "server-newmodule" ]; then
                           </div>
                     </div>
                  </div>
-
                   {{>flxcomments isCommentOpen=false _id=_id comments=comments}}
-
-                 {{#if isEditing}}
-                    {{>blockModals}}
-                    <div class='container animasiAtas' style='position:fixed;top:10%;left:10%;width:80%;z-index:10001;'>
-                       <div class='col-md-12' style='height:auto;max-height:{{sTinggiPopUp}}px;overflow-y:scroll;'>
-                       $sHTMLEdit
-                       </div>
-
-                       <div class='pull-right'>
-                       <a class='saveEDIT btn btn-primary' style='background-color:green;color:white;'>SAVE</a>
-                       </div>
-                    </div>
-                 {{/if}}
               {{/each}}
            </div>
            {{>menuLoadMore}}
         </div>
 
-        {{#if isCreating}}
-           {{>blockModals}}
-           <div class='container animasiAtas' style='position:fixed;top:10%;left:10%;width:80%;z-index:10001;'>
-              <div class='col-md-12' style='height:auto;max-height:{{sTinggiPopUp}}px;overflow-y:scroll;'>
-              $sHTMLNew
-              </div>
 
-              <div class='pull-right'>
-                 <a class='save btn btn-primary' style='background-color:green;color:white;'>SAVE</a>
-              </div>
-           </div>
-        {{/if}}
+        <div class='modal_woTipe modal' id='modal_woTipe' name='modal_woTipe'>
+            <div class='modal-dialog' role='document'>
+                <div class='modal-content'>
+                    <div class='modal-body'>
+                        <div class='form-group label-floating has-info col-md-12'>
+                        $sHTMLNew
+                        </div>
+                        <div class='modal-footer'>
+                            <a class='save btn btn-primary' style='background-color:green;color:white;'>SAVE</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        {{#if isDeleting}}
-           {{>formDeleting}}
-        {{/if}}
      </div>
     </template>
 
