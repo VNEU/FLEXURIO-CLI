@@ -1,4 +1,5 @@
 #!/bin/bash
+LOKASINIPUN=$PWD
 if [ "$1" == "server-newmodule" ]; then
     sDatabase=$(echo $3 | tr 'a-z' 'A-Z')
     sDatabaseL=$(echo "$sDatabase" | tr '[:upper:]' '[:lower:]')
@@ -179,7 +180,7 @@ if [ "$1" == "server-newmodule" ]; then
 
        'click a.create': function(e, tpl){
           e.preventDefault();
-          $("#modal_woTipe").modal('show')
+          $('#modal_woTipe').modal('show')
        },
        'keyup #nama$sDatabase': function (e, tpl) {
            e.preventDefault();
@@ -205,7 +206,7 @@ if [ "$1" == "server-newmodule" ]; then
           e.preventDefault();
           $sDOMEdit
           Session.set('idEditing', this._id);
-          $("#modal_woTipe").modal('show')
+          $('#modal_woTipe').modal('show')
        },
     });
 
