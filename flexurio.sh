@@ -310,7 +310,7 @@ elif [ "$1" == "update" ]; then
          echo "Root user need to update Flexurio. Please use sudo "
          exit
     else
-      curl https://flexurio.com/install.html | sh ./install -flx
+      curl https://flexurio.com/install.html | sh && sudo ./install -flx
     fi
 elif [ "$1" == "init" ]; then
     python ~/.flexurio/flexurio_portal login ~/.flexurio/flexurio_config
