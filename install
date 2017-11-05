@@ -63,7 +63,7 @@ elif [ "$1" == "-flx" ] || [ "$1" == "-all" ]; then
     cp -R flexurio_theme_materialize ~/.flexurio/flexurio_theme_materialize
     chmod +x ~/.flexurio/flexurio_theme_materialize
 
-    cp -R flexurio.sh ~/.flexurio/flexurio
+    cp -R flexurio ~/.flexurio/flexurio
     rm -R /usr/local/bin/flexurio
     ln -s ~/.flexurio/flexurio /usr/local/bin/flexurio
     chmod +x /usr/local/bin/flexurio
