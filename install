@@ -1,63 +1,62 @@
 #!/bin/bash
-echo " ----------------------------------------------------------------------------------"
-echo " |                                     INSTALLER                                  |"
-echo " |     ___________     __________    _______    ___________     __    ______      |"
-echo " |    |   ______  |   |   ____   \  /  ___  |  |  ___   _  \   |  |  /  __  \     |"
-echo " |    |  |__   |  |   |  |__   \  \/  /  |  |  |  | |  |_)  |  |  | |  |  |  |    |"
-echo " |    |   __|  |  |   |   __|   >    <   |  |  |  | |      /   |  | |  |  |  |    |"
-echo " |    |  |     |   ----  |____ /  /\  \  |   --   | |  |\  \   |  | |   --   |    |"
-echo " |    |__|     |_________________/  \__\ |_______/  |__| \__\  |__|  \______/     |"
-echo " |                                                                                |"
-echo " ----------------------------------------------------------------------------------"
-echo ""
-
-
-UNAME=$(uname)
-if [ "$UNAME" ">" "MINGW" -a "$UNAME" "<" "MINGX" ] ; then
-    echo "Sorry, flexurio on Windows not ready"
-    exit
-fi
-if [ "$UNAME" != "Linux" -a "$UNAME" != "Darwin" ] ; then
-    echo "Sorry, this OS is not supported yet via this installer."
-    echo "For more details on supported platforms, see https://www.flexurio.com"
-    exit
-fi
-
-if [ "$1" == "-meteor" ] || [ "$1" == "-all" ]; then
-    curl https://install.meteor.com/ | sh
+(
+    echo " ----------------------------------------------------------------------------------"
+    echo " |                                     INSTALLER                                  |"
+    echo " |     ___________     __________    _______    ___________     __    ______      |"
+    echo " |    |   ______  |   |   ____   \  /  ___  |  |  ___   _  \   |  |  /  __  \     |"
+    echo " |    |  |__   |  |   |  |__   \  \/  /  |  |  |  | |  |_)  |  |  | |  |  |  |    |"
+    echo " |    |   __|  |  |   |   __|   >    <   |  |  |  | |      /   |  | |  |  |  |    |"
+    echo " |    |  |     |   ----  |____ /  /\  \  |   --   | |  |\  \   |  | |   --   |    |"
+    echo " |    |__|     |_________________/  \__\ |_______/  |__| \__\  |__|  \______/     |"
+    echo " |                                                                                |"
+    echo " ----------------------------------------------------------------------------------"
     echo ""
-    echo "Installation Meteor Complete."
-    echo ""
-    chmod -R +xrw ~/.meteor
-elif [ "$1" == "-pip" ] || [ "$1" == "-all" ]; then
-    if [ "$UNAME" == "Linux" ] ; then
-        apt-get install python-pip
+
+
+    UNAME=$(uname)
+    if [ "$UNAME" ">" "MINGW" -a "$UNAME" "<" "MINGX" ] ; then
+        echo "Sorry, flexurio on Windows not ready"
+        exit
     fi
-    if [ "$UNAME" == "Darwin" ] ; then
-        curl https://bootstrap.pypa.io/get-pip.py | python
-    fi
-    pip install ConfigParser
-    pip install requests
-    echo ""
-    echo "Installation Python PIP Complete."
-    echo ""
-elif [ "$1" == "-rn" ] || [ "$1" == "-all" ]; then
-    npm install -g react-native-cli
-    echo ""
-    echo "Installation React-Native Complete."
-    echo ""
-elif [ "$1" == "-flx" ] || [ "$1" == "-all" ]; then
-    if [ $(id -u) != 0 ]; then
-         echo "You're not root"
-         echo "Root user need to install Flexurio. Please use sudo "
-         exit
+    if [ "$UNAME" != "Linux" -a "$UNAME" != "Darwin" ] ; then
+        echo "Sorry, this OS is not supported yet via this installer."
+        echo "For more details on supported platforms, see https://www.flexurio.com"
+        exit
     fi
 
-    echo ""
-    echo "Please wait a moment, open access to meteors, mongodb, react, etc. Do not close or cancel this screen"
-    echo ""
+    if [ "$1" == "-meteor" ] || [ "$1" == "-all" ]; then
+        curl https://install.meteor.com/ | sh
+        echo ""
+        echo "Installation Meteor Complete."
+        echo ""
+        chmod -R +xrw ~/.meteor
+    elif [ "$1" == "-pip" ] || [ "$1" == "-all" ]; then
+        if [ "$UNAME" == "Linux" ] ; then
+            apt-get install python-pip
+        fi
+        if [ "$UNAME" == "Darwin" ] ; then
+            curl https://bootstrap.pypa.io/get-pip.py | python
+        fi
+        pip install ConfigParser
+        pip install requests
+        echo ""
+        echo "Installation Python PIP Complete."
+        echo ""
+    elif [ "$1" == "-rn" ] || [ "$1" == "-all" ]; then
+        npm install -g react-native-cli
+        echo ""
+        echo "Installation React-Native Complete."
+        echo ""
+    elif [ "$1" == "-flx" ] || [ "$1" == "-all" ]; then
+        if [ $(id -u) != 0 ]; then
+             echo "You're not root"
+             echo "Root user need to install Flexurio. Please use sudo "
+             exit
+        fi
 
-    (
+        echo ""
+        echo "Please wait a moment, open access to meteors, mongodb, react, etc. Do not close or cancel this screen"
+
         mkdir -p ~/.flexurio/
         cp -R flexurio_config ~/.flexurio/
         cp -R flexurio_portal ~/.flexurio/
@@ -80,24 +79,25 @@ elif [ "$1" == "-flx" ] || [ "$1" == "-all" ]; then
         rm flexurio_theme_bootstrap
         rm flexurio_theme_materialize
         rm install
-    ) & PID=$!
+    else
+        echo ""
+        echo " Please input what you want install."
+        echo " -meteor                    Install Meteor.JS"
+        echo " -pip                       Install Python PIP"
+        echo " -rn                        Install React-Native"
+        echo ""
+        echo " -flx                       Install FLEXURIO"
+        echo " -all                       Install All packages that need on FLEXURIO"
+        echo ""
+    fi
+    exit 0
+) & PID=$!
 
-    echo "THIS MAY TAKE A WHILE, PLEASE BE PATIENT WHILE ______ IS RUNNING..."
-    printf "["
-    while kill -0 $PID 2> /dev/null; do
-        printf  "▓"
-        sleep 1
-    done
-    printf "] done!"
-else
-    echo ""
-    echo " Please input what you want install."
-    echo " -meteor                    Install Meteor.JS"
-    echo " -pip                       Install Python PIP"
-    echo " -rn                        Install React-Native"
-    echo ""
-    echo " -flx                       Install FLEXURIO"
-    echo " -all                       Install All packages that need on FLEXURIO"
-    echo ""
-fi
-exit 0
+echo "THIS MAY TAKE A WHILE, PLEASE BE PATIENT WHILE FLEXURIO INSTALLER IS RUNNING..."
+printf "["
+while kill -0 $PID 2> /dev/null; do
+    printf  "▓"
+    sleep 1
+done
+printf "] done!"
+echo ""
