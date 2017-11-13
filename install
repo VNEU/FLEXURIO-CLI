@@ -57,45 +57,39 @@ elif [ "$1" == "-flx" ] || [ "$1" == "-all" ]; then
     echo "Please wait a moment, open access to meteors, mongodb, react, etc. Do not close or cancel this screen"
     echo ""
 
-    printf '######'
-    sleep 1
 
-    mkdir -p ~/.flexurio/
-    cp -R flexurio_config ~/.flexurio/
-    cp -R flexurio_portal ~/.flexurio/
+    (
+        mkdir -p ~/.flexurio/
+        cp -R flexurio_config ~/.flexurio/
+        cp -R flexurio_portal ~/.flexurio/
 
-    printf '#########'
-    sleep 1
+        sudo cp -R flexurio_theme_bootstrap ~/.flexurio/flexurio_theme_bootstrap
+        sudo chmod +x ~/.flexurio/flexurio_theme_bootstrap
 
-    sudo cp -R flexurio_theme_bootstrap ~/.flexurio/flexurio_theme_bootstrap
-    sudo chmod +x ~/.flexurio/flexurio_theme_bootstrap
+        cp -R flexurio_theme_materialize ~/.flexurio/flexurio_theme_materialize
+        sudo chmod +x ~/.flexurio/flexurio_theme_materialize
 
-    cp -R flexurio_theme_materialize ~/.flexurio/flexurio_theme_materialize
-    sudo chmod +x ~/.flexurio/flexurio_theme_materialize
+        sudo cp -R flexurio ~/.flexurio/flexurio
+        sudo rm -R /usr/local/bin/flexurio
+        sudo ln -s ~/.flexurio/flexurio /usr/local/bin/flexurio
+        sudo chmod +x /usr/local/bin/flexurio
+        sudo chmod +x ~/.flexurio/flexurio
+        sudo chmod -R +xrw ~/.meteor
+        rm flexurio
+        rm flexurio_portal
+        rm flexurio_config
+        rm flexurio_theme_bootstrap
+        rm flexurio_theme_materialize
+        rm install
+    ) & PID=$!
 
-    sudo cp -R flexurio ~/.flexurio/flexurio
-    sudo rm -R /usr/local/bin/flexurio
-    sudo ln -s ~/.flexurio/flexurio /usr/local/bin/flexurio
-    sudo chmod +x /usr/local/bin/flexurio
-    sudo chmod +x ~/.flexurio/flexurio
-    printf '##########'
-    sleep 1
-
-    sudo chmod -R +xrw ~/.meteor
-
-    printf '###########'
-    sleep 1
-
-    rm flexurio
-    rm flexurio_portal
-    rm flexurio_config
-    rm flexurio_theme_bootstrap
-    rm flexurio_theme_materialize
-    rm install
-    printf '################   (100\%)'
-    echo ""
-    echo "Installation Flexurio Complete."
-    echo ""
+    echo "THIS MAY TAKE A WHILE, PLEASE BE PATIENT WHILE ______ IS RUNNING..."
+    printf "["
+    while kill -0 $PID 2> /dev/null; do
+        printf  "▓"
+        sleep 1
+    done
+    printf "] done!"
 else
     echo ""
     echo " Please input what you want install."
