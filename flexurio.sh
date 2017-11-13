@@ -1,7 +1,7 @@
 #!/bin/bash
 
 LOKASINIPUN=$PWD
-VERSION="1.2.1"
+VERSION="1.2.2"
 CODENAME="Satunggal"
 
 FLX_THEME=""
