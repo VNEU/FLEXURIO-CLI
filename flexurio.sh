@@ -12,7 +12,7 @@ function error_parameter() {
     echo "Please run again your command"
     exit
 }
-
+echo ""
 echo " ------------------------------------------------------------------------------"
 echo " |                      Ease in generating code for your App                  |"
 echo " |   ___________     __________    _______    ___________     __    ______    |"
