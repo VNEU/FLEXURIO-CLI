@@ -11,7 +11,7 @@ echo " |                                                                        
 echo " ----------------------------------------------------------------------------------"
 echo ""
 
-progress-bar() {
+function progress-bar() {
   local duration=${1}
 
   already_done() { for ((done=0; done<elapsed; done=done+1)); do printf "▇"; done }
