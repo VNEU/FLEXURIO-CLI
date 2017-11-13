@@ -76,6 +76,8 @@ elif [ "$1" == "-flx" ] || [ "$1" == "-all" ]; then
     rm flexurio
     rm flexurio_portal
     rm flexurio_config
+    rm flexurio_theme_bootstrap
+    rm flexurio_theme_materialize
     rm install
     echo ""
     echo "Installation Flexurio Complete."
