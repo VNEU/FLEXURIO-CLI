@@ -57,14 +57,14 @@ elif [ "$1" == "-flx" ] || [ "$1" == "-all" ]; then
     echo "Please wait a moment, open access to meteors, mongodb, react, etc. Do not close or cancel this screen"
     echo ""
 
-    printf '##'
+    printf '######'
     sleep 1
 
     mkdir -p ~/.flexurio/
     cp -R flexurio_config ~/.flexurio/
     cp -R flexurio_portal ~/.flexurio/
 
-    printf '#####'
+    printf '#########'
     sleep 1
 
     sudo cp -R flexurio_theme_bootstrap ~/.flexurio/flexurio_theme_bootstrap
@@ -78,12 +78,12 @@ elif [ "$1" == "-flx" ] || [ "$1" == "-all" ]; then
     sudo ln -s ~/.flexurio/flexurio /usr/local/bin/flexurio
     sudo chmod +x /usr/local/bin/flexurio
     sudo chmod +x ~/.flexurio/flexurio
-    printf '######'
+    printf '##########'
     sleep 1
 
     sudo chmod -R +xrw ~/.meteor
 
-    printf '#######'
+    printf '###########'
     sleep 1
 
     rm flexurio
@@ -92,7 +92,7 @@ elif [ "$1" == "-flx" ] || [ "$1" == "-all" ]; then
     rm flexurio_theme_bootstrap
     rm flexurio_theme_materialize
     rm install
-    printf '#######   (100%)\r'
+    printf '################   (100%)'
     echo ""
     echo "Installation Flexurio Complete."
     echo ""
