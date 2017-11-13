@@ -53,6 +53,10 @@ elif [ "$1" == "-flx" ] || [ "$1" == "-all" ]; then
          exit
     fi
 
+    echo ""
+    echo "Please wait a moment, open access to meteors, mongodb, react, etc. Do not close or cancel this screen"
+    echo ""
+
     echo '##'
     sleep 1
 
@@ -74,10 +78,6 @@ elif [ "$1" == "-flx" ] || [ "$1" == "-all" ]; then
     sudo ln -s ~/.flexurio/flexurio /usr/local/bin/flexurio
     sudo chmod +x /usr/local/bin/flexurio
     sudo chmod +x ~/.flexurio/flexurio
-
-    echo ""
-    echo "Please wait a moment, open access to meteors, mongodb, react, etc. Do not close or cancel this screen"
-    echo ""
     echo '##########'
     sleep 1
 
