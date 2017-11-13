@@ -14,17 +14,17 @@ echo ""
 
 
 UNAME=$(uname)
-if ["$UNAME" ">" "MINGW" -a "$UNAME" "<" "MINGX"]; then
+if [ "$UNAME" ">" "MINGW" -a "$UNAME" "<" "MINGX" ] ; then
     echo "Sorry, flexurio on Windows not ready"
     exit
 fi
-if ["$UNAME" != "Linux" -a "$UNAME" != "Darwin"]; then
+if [ "$UNAME" != "Linux" -a "$UNAME" != "Darwin" ] ; then
     echo "Sorry, this OS is not supported yet via this installer."
     echo "For more details on supported platforms, see https://www.flexurio.com"
     exit
 fi
 
-if ["$1"=="-meteor"] || ["$1"=="-all"]; then
+if [ "$1" == "-meteor" ] || [ "$1" == "-all" ]; then
     (
         curl https://install.meteor.com/ | sh
     ) & PID=$!
@@ -41,12 +41,12 @@ if ["$1"=="-meteor"] || ["$1"=="-all"]; then
     echo "Installation Meteor Complete."
     echo ""
     chmod -R +xrw ~/.meteor
-elif ["$1"=="-pip"] || ["$1"=="-all"]; then
+elif [ "$1" == "-pip" ] || [ "$1" == "-all" ]; then
     (
-        if ["$UNAME"=="Linux"] ; then
+        if [ "$UNAME" == "Linux" ] ; then
             apt-get install python-pip
         fi
-        if ["$UNAME"=="Darwin"]; then
+        if [ "$UNAME" == "Darwin" ] ; then
             curl https://bootstrap.pypa.io/get-pip.py | python
         fi
 
@@ -65,7 +65,7 @@ elif ["$1"=="-pip"] || ["$1"=="-all"]; then
     echo ""
     echo "Installation Python PIP Complete."
     echo ""
-elif ["$1"=="-rn"]|| ["$1"=="-all"]; then
+elif [ "$1" == "-rn" ] || [ "$1" == "-all" ]; then
     (
         npm install -g react-native-cli
     ) & PID=$!
@@ -81,8 +81,8 @@ elif ["$1"=="-rn"]|| ["$1"=="-all"]; then
     echo ""
     echo "Installation React-Native Complete."
     echo ""
-elif ["$1"=="-flx"]|| ["$1"=="-all"]; then
-    if [$(id -u) != 0]; then
+elif [ "$1" == "-flx" ] || [ "$1" == "-all" ]; then
+    if [ $(id -u) != 0 ]; then
          echo "You're not root"
          echo "Root user need to install Flexurio. Please use sudo "
          exit
