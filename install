@@ -1,5 +1,6 @@
 #!/bin/bash
 (
+    echo ""
     echo " ----------------------------------------------------------------------------------"
     echo " |                                     INSTALLER                                  |"
     echo " |     ___________     __________    _______    ___________     __    ______      |"
@@ -97,4 +98,6 @@ while kill -0 $PID 2> /dev/null; do
     printf  "▓"
     sleep 1
 done
+echo ""
 echo "DONE, Your feedback make flexurio more usefull. Email your opinions at nunung.pamungkas@vneu.co.id, Thanks "
+echo ""
