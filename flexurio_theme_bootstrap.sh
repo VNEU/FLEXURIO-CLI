@@ -48,7 +48,7 @@ if [ "$1" == "server-newmodule" ]; then
        "
 
        sDOMEdit=$sDOMEdit$"
-       document.getElementById('$namakolomL').value = this.$sNamaNew;
+       document.getElementById('$sNamaNew').value = this.$namakolomL;
        "
 
        sNew=$sNew$"
