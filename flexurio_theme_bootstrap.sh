@@ -1,5 +1,7 @@
 #!/bin/bash
 LOKASINIPUN=$PWD
+echo " You project at $LOKASINIPUN using Theme  $FLX_THEME"
+
 if [ "$1" == "server-newmodule" ]; then
     sDatabase=$(echo $3 | tr 'a-z' 'A-Z')
     sDatabaseL=$(echo "$sDatabase" | tr '[:upper:]' '[:lower:]')

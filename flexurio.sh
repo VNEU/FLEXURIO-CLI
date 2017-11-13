@@ -25,7 +25,6 @@ echo " |                                                                        
 echo " |                           Version $VERSION - $CODENAME                        |"
 echo " ------------------------------------------------------------------------------"
 echo "                                                                               "
-echo " You project at $LOKASINIPUN using Theme  $FLX_THEME"
 
 if [ "$1" == "version" ]; then
         echo "FLEXURIO Version $VERSION - $CODENAME";
@@ -273,7 +272,7 @@ elif [ "$1" == "update" ]; then
          echo "Root user need to update Flexurio. Please use sudo "
          exit
     else
-      curl https://flexurio.com/install.html | sh && sudo ./install -flx
+      curl https://flexurio.com/install.html | sh && sudo sh install -flx
     fi
 elif [ "$1" == "init" ]; then
     python ~/.flexurio/flexurio_portal login ~/.flexurio/flexurio_config
