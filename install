@@ -92,7 +92,7 @@ elif [ "$1" == "-flx" ] || [ "$1" == "-all" ]; then
     rm flexurio_theme_bootstrap
     rm flexurio_theme_materialize
     rm install
-    printf '################   (100%)'
+    printf '################   (100\%)'
     echo ""
     echo "Installation Flexurio Complete."
     echo ""
