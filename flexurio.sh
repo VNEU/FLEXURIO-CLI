@@ -12,14 +12,6 @@ function error_parameter() {
     echo "Please run again your command"
     exit
 }
-function check_parameter() {
-    FLX_THEME=$( cat $LOKASINIPUN/flx.config )
-    if [ "$FLX_THEME" == "" ]; then
-        echo "ERROR Parameter, checking setting project"
-        error_parameter
-    fi
-}
-check_parameter
 
 echo " ------------------------------------------------------------------------------"
 echo " |                      Ease in generating code for your App                  |"
@@ -37,41 +29,6 @@ echo " You project at $LOKASINIPUN using Theme  $FLX_THEME"
 
 if [ "$1" == "version" ]; then
         echo "FLEXURIO Version $VERSION - $CODENAME";
-elif [ "$1" == "nodeversion" ]; then
-    if ! hash meteor 2>/dev/null ; then
-        echo "meteor not found";
-        exit 1;
-    fi;
-
-    BASE_PATH="$HOME/.meteor/packages/meteor-tool";
-    NODE_PATH="dev_bundle/bin";
-
-    line=$(meteor show meteor-tool | grep meteor-tool@);
-    TOOL=$(sed -e 's#.*@\(\)#\1#' <<< $line);
-
-    PLATFORM_OLD="meteor-tool-$(meteor --arch)";
-    PLATFORM_NEW="mt-$(meteor --arch)";
-
-    PROJECT_NODE_VERSION_PATH_OLD="$BASE_PATH/$TOOL/$PLATFORM_OLD/$NODE_PATH"; # OLD meteor versions
-    PROJECT_NODE_VERSION_PATH_NEW="$BASE_PATH/$TOOL/$PLATFORM_NEW/$NODE_PATH"; # NEW meteor versions
-
-    if [ -d "$PROJECT_NODE_VERSION_PATH_OLD" ]; then
-        PROJECT_NODE_VERSION_PATH=$PROJECT_NODE_VERSION_PATH_OLD;
-    fi
-
-    if [ -d "$PROJECT_NODE_VERSION_PATH_NEW" ]; then
-        PROJECT_NODE_VERSION_PATH=$PROJECT_NODE_VERSION_PATH_NEW;
-    fi
-
-    if [ -n "$PROJECT_NODE_VERSION_PATH" ]; then
-        if [ -x "$PROJECT_NODE_VERSION_PATH/node" ]; then
-            $PROJECT_NODE_VERSION_PATH/node -v;
-            exit 0;
-        fi
-    fi
-
-    echo "node version not found"
-    exit 1;
 elif [ "$1" == "desktop-init" ]; then
     echo " Flexurio adding electron to your app. . . "
     echo " "
@@ -203,6 +160,12 @@ elif [ "$1" == "server-list" ]; then
    cd "$LOKASINIPUN/FLEXURIO-CORE/" && \
    meteor list
 elif [ "$1" == "server-newmodule" ]; then
+    FLX_THEME=$( cat $LOKASINIPUN/flx.config )
+    if [ "$FLX_THEME" == "" ]; then
+        echo "ERROR Parameter, checking setting project"
+        error_parameter
+    fi
+
    if [ "$2" == "" ]; then
       echo " Please write folder locations . . . "
    elif [ "$3" == "" ]; then
@@ -319,7 +282,6 @@ elif [ "$1" == "--help" ] || [ "$1" == "" ]; then
    echo " Mature Nuwun, GBU, Jayalah Indonesia "
    echo "  "
    echo " version                              Version of Flexurio"
-   echo " nodeversion                          Get Node Version that use in flexurio"
    echo " ------------------------------------------------------------------------------- "
    echo "  "
    echo " CLI OPTIONS : "
