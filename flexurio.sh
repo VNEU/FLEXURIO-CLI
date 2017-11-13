@@ -6,7 +6,7 @@ CODENAME="Satunggal"
 
 FLX_THEME=""
 function error_parameter() {
-    echo "FLX_THEME=bootstrap" >  "$LOKASINIPUN/flx.config"
+    echo "bootstrap" >  "$LOKASINIPUN/flx.config"
     echo "Generating theme that use on your Flexurio project successfully"
     echo "Now, your Flexurio use Bootstrap Framework. You can modify at flx.config file"
     echo "Please run again your command"
