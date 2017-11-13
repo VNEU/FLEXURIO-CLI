@@ -93,11 +93,8 @@
     exit 0
 ) & PID=$!
 
-echo "THIS MAY TAKE A WHILE, PLEASE BE PATIENT WHILE FLEXURIO INSTALLER IS RUNNING..."
-printf "["
 while kill -0 $PID 2> /dev/null; do
     printf  "▓"
     sleep 1
 done
-printf "] done!"
-echo ""
+echo "DONE, Your feedback make flexurio more usefull. Email your opinions at nunung.pamungkas@vneu.co.id, Thanks "
