@@ -72,11 +72,11 @@ elif [ "$1" == "-flx" ] || [ "$1" == "-all" ]; then
     echo ""
     echo "Please wait a moment, open access to meteors, mongodb, react, etc. Do not close or cancel this screen"
     echo ""
-    # chmod -R +xrw ~/.meteor
-    # rm flexurio
-    # rm flexurio_portal
-    # rm flexurio_config
-    # rm install
+    sudo chmod -R +xrw ~/.meteor
+    rm flexurio
+    rm flexurio_portal
+    rm flexurio_config
+    rm install
     echo ""
     echo "Installation Flexurio Complete."
     echo ""
