@@ -277,8 +277,8 @@ elif [ "$1" == "update" ]; then
 elif [ "$1" == "init" ]; then
     python ~/.flexurio/flexurio_portal login ~/.flexurio/flexurio_config
 elif [ "$1" == "--help" ] || [ "$1" == "" ]; then
-   echo " Flexurio is tools to bootstraping node on server - desktop, also with react-native on mobile app. Please read this options carefully. Any question feel free to email us at nunung.pamungkas@vneu.co.id or text at +628119003077. Please visit https://flexurio.com to join our community"
-   echo " Mature Nuwun, GBU, Jayalah Indonesia "
+   printf "Flexurio is tools to bootstraping node on server - desktop, also with react-native on mobile app. Please read this options carefully. Any question feel free to email us at nunung.pamungkas@vneu.co.id or text at +628119003077. Please visit https://flexurio.com to join our community"
+   echo "Mature Nuwun, GBU, Jayalah Indonesia "
    echo "  "
    echo " version                              Version of Flexurio"
    echo " ------------------------------------------------------------------------------- "
