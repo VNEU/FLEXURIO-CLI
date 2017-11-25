@@ -70,8 +70,10 @@ if [ "$1" == "server-newmodule" ]; then
        sHTMLDisplay=$sHTMLDisplay$" {{$namakolomL}} - "
 
        sHTMLNew=$sHTMLNew$"
-        <label for='$sNamaNew' class='control-label'>$namakolomU $sDatabase</label>
-        <input name='$sNamaNew' id='$sNamaNew' type='text' class='form-control' style='font-size:larger;' autofocus>
+            <div class='form-group label-floating has-info col-md-12'>
+                <label for='$sNamaNew' class='control-label'>$namakolomU $sDatabase</label>
+                <input name='$sNamaNew' id='$sNamaNew' type='text' class='form-control' style='font-size:larger;' autofocus>
+            </div>
        "
     done
 
