@@ -260,14 +260,16 @@ elif [ "$1" == "create" ]; then
                 git clone https://github.com/VNEU/FLEXURIO-BOOTSTRAP.git $2/FLEXURIO-CORE
                 sudo rm -R $2/FLEXURIO-CORE/.git
                 cd $2/FLEXURIO-CORE && meteor npm install --save bcrypt
+                echo " ----------------------------------------------------------------------------------------- "
                 echo " Create config file with bootstrap theme ( https://getbootstrap.com/ ).  "
                 echo " And icon with glypicons ( https://getbootstrap.com/docs/3.3/components/ ).  "
-                echo "bootstrap" >  "$2/flx.config"
-                echo " -------------------------------------------------------------------------- "
+                cd $2 && echo "bootstrap" >  "flx.config"
+                echo " ----------------------------------------------------------------------------------------- "
                 echo " CREATE PROCESS DONE. "
-                echo " Please go to folder $2 and server-run, "
-                echo " After a while please visit http://localhost:3000 "
-                echo " Happy code with flexurio guys, :) "
+                echo "      *. Please go to folder $2 and server-run, "
+                echo "      *. After a while please visit http://localhost:3000 "
+                echo "      *. Happy code with flexurio guys, :) "
+                echo " ----------------------------------------------------------------------------------------- "
             fi
         elif [ "$3" == "materialize" ]; then
             echo " Please contact nunung.pamungkas@vneu.co.id for licence"
