@@ -263,7 +263,7 @@ elif [ "$1" == "create" ]; then
                 echo " ----------------------------------------------------------------------------------------- "
                 echo " Create config file with bootstrap theme ( https://getbootstrap.com/ ).  "
                 echo " And icon with glypicons ( https://getbootstrap.com/docs/3.3/components/ ).  "
-                cd $2 && echo "bootstrap" >  "flx.config"
+                cd ../../$2 && echo "bootstrap" >  "flx.config"
                 echo " ----------------------------------------------------------------------------------------- "
                 echo " CREATE PROCESS DONE. "
                 echo "      *. Please go to folder $2 and server-run, "
