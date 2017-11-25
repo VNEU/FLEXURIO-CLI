@@ -34,7 +34,7 @@ Don't have an account? Sign up at http://wwww.flexurio.com
 
 ## CREATE APP
 ```
-$ flexurio create [Project Name]
+$ flexurio create [Project Name] [theme]
 
 ```
 
