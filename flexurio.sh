@@ -259,7 +259,8 @@ elif [ "$1" == "create" ]; then
                 mkdir $2
                 git clone https://github.com/VNEU/FLEXURIO-BOOTSTRAP.git $2/FLEXURIO-CORE
                 sudo rm -R $2/FLEXURIO-CORE/.git
-                cd $2/FLEXURIO-CORE && meteor npm install --save bcrypt && cd .. && echo "bootstrap" >  "$LOKASINIPUN/flx.config"
+                cd $2/FLEXURIO-CORE && meteor npm install --save bcrypt
+                echo "bootstrap" >  "$2/flx.config"
                 echo " -------------------------------------------------------------------------- "
                 echo " CREATE PROCESS DONE. Please go to folder $2 and server-run, after while a minutes visit http://localhost:3000 "
                 echo " Happy code with flexurio guys, :) "
