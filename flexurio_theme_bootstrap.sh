@@ -212,6 +212,12 @@ if [ "$1" == "server-newmodule" ]; then
           Session.set('idEditing', this._id);
           \$('#modal_$3').modal('show')
        },
+
+       'submit form.form-comments': function (e, tpl) {
+            e.preventDefault();
+            flxcomments(e, tpl, $sDatabase);
+        },
+
     });
 
 
