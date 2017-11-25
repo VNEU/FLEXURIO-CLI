@@ -259,6 +259,7 @@ elif [ "$1" == "create" ]; then
                 mkdir $2
                 git clone https://github.com/VNEU/FLEXURIO-BOOTSTRAP.git $2/FLEXURIO-CORE
                 sudo rm -R $2/FLEXURIO-CORE/.git
+                cd $2/FLEXURIO-CORE && meteor npm install --save bcrypt && cd ..
             fi
         elif [ "$3" == "materialize" ]; then
             echo " Please contact nunung.pamungkas@vneu.co.id for licence"
