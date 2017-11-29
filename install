@@ -92,6 +92,8 @@ elif [ "$1" == "-flx" ] || [ "$1" == "-all" ]; then
     echo "Please wait a moment, open access to meteors, mongodb, react, etc. Do not close or cancel this screen"
 
     (
+        sudo apt-get install nodejs-legacy
+        sudo apt-get install npm
         mkdir -p ~/.flexurio/
         cp -R flexurio_config ~/.flexurio/
         cp -R flexurio_portal ~/.flexurio/
