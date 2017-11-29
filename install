@@ -125,6 +125,9 @@ elif [ "$1" == "-flx" ] || [ "$1" == "-all" ]; then
     echo ""
     echo "DONE, Your feedback make flexurio more usefull. Email your opinions at nunung.pamungkas@vneu.co.id, Thanks "
     echo ""
+elif [ "$1" == "-core" ]; then
+    ./install -meteor
+    ./install -flx
 else
     echo ""
     echo " Please input what you want install."
@@ -135,5 +138,7 @@ else
     echo " -flx                       Install FLEXURIO"
     echo " -all                       Install All packages that need on FLEXURIO"
     echo ""
+    echo " -core                      Install FLEXURIO with minimum library"
+
 fi
 exit 0
