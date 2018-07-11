@@ -1,0 +1,348 @@
+#!/bin/bash
+
+LOKASINIPUN=$PWD
+VERSION="1.2.2"
+CODENAME="Satunggal"
+
+FLX_THEME=""
+function error_parameter() {
+    echo "bootstrap" >  "$LOKASINIPUN/flx.config"
+    echo "Generating theme that use on your Flexurio project successfully"
+    echo "Now, your Flexurio use Bootstrap Framework. You can modify at flx.config file"
+    echo "Please run again your command"
+    exit
+}
+echo ""
+echo " ------------------------------------------------------------------------------"
+echo " |                      Ease in generating code for your App                  |"
+echo " |   ___________     __________    _______    ___________     __    ______    |"
+echo " |  |   ______  |   |   ____   \  /  ___  |  |  ___   _  \   |  |  /  __  \   |"
+echo " |  |  |__   |  |   |  |__   \  \/  /  |  |  |  | |  |_)  |  |  | |  |  |  |  |"
+echo " |  |   __|  |  |   |   __|   >    <   |  |  |  | |      /   |  | |  |  |  |  |"
+echo " |  |  |     |   ----  |____ /  /\  \  |   --   | |  |\  \   |  | |   --   |  |"
+echo " |  |__|     |_________________/  \__\ |_______/  |__| \__\  |__|  \______/   |"
+echo " |                                                                            |"
+echo " |                           Version $VERSION - $CODENAME                        |"
+echo " ------------------------------------------------------------------------------"
+echo "                                                                               "
+
+if [ "$1" == "version" ]; then
+        echo "FLEXURIO Version $VERSION - $CODENAME";
+elif [ "$1" == "desktop-init" ]; then
+    echo " Flexurio adding electron to your app. . . "
+    echo " "
+    echo " Installing electron use npm, so please make sure you have nodejs & NPM, on Debian you can install with "
+    echo " $ apt-get install nodejs nodejs-legacy npm "
+    echo " "
+    echo " $ npm install -g electron "
+
+     rm -r FLEXURIO-DESKTOP
+    git clone https://github.com/VNEU/FLEXURIO-DESKTOP.git
+    npm install -g electrify
+    cd "$LOKASINIPUN/FLEXURIO-CORE/" && meteor add  arboleya:electrify && meteor npm install --save app browser-window electrify && electrify
+elif [ "$1" == "desktop-run" ]; then
+    echo " Flexurio run local development and desktop app that pair to localhost. . . "
+    if [ -d "FLEXURIO-CORE/.electrify" ]; then
+        cp -R FLEXURIO-DESKTOP/* FLEXURIO-CORE/.electrify/
+    else
+        cp -R FLEXURIO-DESKTOP FLEXURIO-CORE/.electrify
+    fi
+    cd "$LOKASINIPUN/FLEXURIO-CORE/" && electrify
+elif [ "$1" == "desktop-build" ]; then
+    echo " Flexurio build desktop app for this OS. . . "
+    cp -R FLEXURIO-DESKTOP/* FLEXURIO-CORE/.electrify/ && cd "$LOKASINIPUN/FLEXURIO-CORE/" && electrify package -o ../BUILD/
+elif [ "$1" == "engine-build" ]; then
+    echo ""
+
+ # ================ SERVER MODULE =================
+elif [ "$1" == "server-deploy" ]; then
+   if [[ $2 = *[!\ ]* ]]; then
+       if [[ $3 = *[!\ ]* ]]; then
+            echo -n "Is Container Flexurio stoped (y/n)? "
+            read answer
+            if echo "$answer" | grep -iq "^y" ;then
+                  echo " Deploying Flexurio To $2 at $3 . . . "
+                  sLOKASI="$2:$3"
+                  scp ../BUILD/FLEXURIO-CORE.tar.gz $sLOKASI
+            else
+                  exit
+            fi
+       else
+          echo " Please input FOLDER in SERVER"
+       fi
+   else
+      echo " Please Input user@IP SSH"
+   fi
+elif [ "$1" == "server-build" ]; then
+   if [[ $2 = *[!\ ]* ]]; then
+       if [[ $3 = *[!\ ]* ]]; then
+          echo " Build Flexurio for $2 at $3 . . . "
+          cd "$LOKASINIPUN/FLEXURIO-CORE/" && meteor build --architecture=$2 ../BUILD --server=$3
+       else
+          echo " Please Input IP:PORT"
+       fi
+   else
+      echo " OS ARCHITECTURE -- NOT SPECIFIED "
+      echo " Please use one of the following : "
+      echo " 1. os.osx.x86_64 "
+      echo " 2. os.linux.x86_64 "
+      echo " 3. os.linux.x86_32 "
+   fi
+elif [ "$1" == "server-add" ]; then
+   if [ "$2" == "" ]; then
+      echo " Flexurio adding minimal package content to server side. . . "
+      cd "$LOKASINIPUN/FLEXURIO-CORE/" && \
+      meteor add session && \
+      meteor add accounts-base && \
+      meteor add accounts-password  && \
+      meteor add accounts-twitter && \
+      meteor add accounts-facebook && \
+      meteor add accounts-google && \
+      meteor add alanning:roles && \
+      echo "Setting Up Flexurio Offline Mode . . ." && \
+      meteor add appcache && \
+      meteor add ground:db && \
+      meteor add blaze-html-templates && \
+      meteor add check && \
+      meteor add ejson && \
+      meteor add eluck:accounts-lockout && \
+      echo "Setting Up Bootstrap Material Design . . ." && \
+      meteor add fezvrasta:bootstrap-material-design && \
+      meteor add iron:router && \
+      echo "Setting Up Flexurio REST API Server . . ." && \
+      echo "Setting Up Flash message design . . ." && \
+      meteor add mrt:flash-messages && \
+      echo "Setting Up Flexurio Developer Tools Query Mongo . . ." && \
+      meteor add msavin:mongol && \
+      echo "Setting Up Flexurio Upload Image . . ." && \
+      meteor add momentjs:moment && \
+      meteor add ongoworks:pdf && \
+      meteor add sergeyt:typeahead && \
+      echo "Remove autopublish . . ." && \
+      meteor remove autopublish
+   else
+      echo " add package name '"$2"' to your server app . . . "
+      cd "$LOKASINIPUN/FLEXURIO-CORE/" && \
+      meteor add $2
+   fi
+elif [ "$1" == "server-remove" ]; then
+   if [ "$2" == "" ]; then
+      echo " Please write specific package that you want to delete. . . "
+   else
+      echo " remove package name '"$2"' to your server app . . . "
+      cd "$LOKASINIPUN/FLEXURIO-CORE/" && \
+      meteor remove $2
+   fi
+elif [ "$1" == "server-init" ]; then
+   echo " Bootstraping Flexurio Server side base on meteor . . . "
+   python ~/.flexurio/flexurio_portal serverinit ~/.flexurio/flexurio_config
+   git clone https://github.com/VNEU/FLEXURIO-CORE.git
+   cd FLEXURIO-CORE &&  rm -R .git
+elif [ "$1" == "server-update" ]; then
+   if [ "$2" == "" ]; then
+      echo " Update Latest Flexurio server to stable release . . . "
+      cd "$LOKASINIPUN/FLEXURIO-CORE/" && \
+      meteor update
+   else
+      if [ "$2" == "--all-packages" ]; then
+         echo " Updating all package on server . . . "
+         cd "$LOKASINIPUN/FLEXURIO-CORE/" && \
+         meteoer update --all-packages
+      else
+         echo " Updating package on server " $2 " . . . "
+         cd "$LOKASINIPUN/FLEXURIO-CORE/" && \
+         meteor update $2
+      fi
+   fi
+elif [ "$1" == "server-list" ]; then
+   echo " List all package on your server app .... "
+   cd "$LOKASINIPUN/FLEXURIO-CORE/" && \
+   meteor list
+elif [ "$1" == "server-newmodule" ]; then
+    FLX_THEME=$( cat $LOKASINIPUN/flx.config )
+    if [ "$FLX_THEME" == "" ]; then
+        echo "ERROR Parameter, checking setting project"
+        error_parameter
+    fi
+
+   if [ "$2" == "" ]; then
+      echo " Please write folder locations . . . "
+   elif [ "$3" == "" ]; then
+      echo " Please write appname . . . "
+   else
+       if [ $FLX_THEME == "bootstrap" ]; then
+           sh ~/.flexurio/flexurio_theme_bootstrap server-newmodule $2 $3
+       elif [ $FLX_THEME == "materialize" ]; then
+           sh ~/.flexurio/flexurio_theme_materialize server-newmodule $2 $3
+       else
+           error_parameter
+       fi
+   fi
+elif [ "$1" == "server-reset" ]; then
+   echo " Reset Flexurio server to official factory data. . . "
+   cd "$LOKASINIPUN/FLEXURIO-CORE/" && meteor reset
+elif [ "$1" == "server-run" ]; then
+   echo " Starting Flexurio server . . . "
+   cd "$LOKASINIPUN/FLEXURIO-CORE/" && \
+   meteor
+elif [ "$1" == "server-runProductions" ]; then
+    if [[ $2 = *[!\ ]* ]]; then
+        if [[ $3 = *[!\ ]* ]]; then
+           echo " Starting Flexurio server with Production MONGODB . . . "
+           cd "$LOKASINIPUN/FLEXURIO-CORE/" && \
+            MONGO_URL=mongodb://$2/$3 meteor
+        else
+            echo " Please Input DATABASE, Ex : ./flexurio server-runProductions username:password@localhost:10010 admin "
+        fi
+    else
+        echo " Please Input IP:PORT DATABASE, Ex : ./flexurio server-runProductions username:password@localhost:10010 admin "
+    fi
+
+
+ # ================ MOBILE MODULE =================
+elif [ "$1" == "mobile-init" ]; then
+    if [ -d "FLEXURIO-MOBILE" ]; then
+        echo " FLEXURIO-MOBILE already exists"
+    else
+        git clone https://github.com/VNEU/FLEXURIO-MOBILE.git
+        cd FLEXURIO-MOBILE &&  rm -R .git &&  echo " Installing Mobile Flexurio Framework . . . " &&  npm install -g react-native-cli && npm install
+    fi
+elif [ "$1" == "mobile-avd" ]; then
+    if [[ $2 = "--list" ]]; then
+        echo " Opening Android Virtual Device . . . "
+        android avd
+    elif [[ $2 = "--install" ]]; then
+        echo " Opening Android SDK Manager . . . "
+        android
+    elif [[ $2 = "--run" ]]; then
+        if [[ $3 = *[!\ ]* ]]; then
+            echo " Run AVD $3 . . . "
+            emulator -avd $3
+        else
+            echo " Please write specific AVD Name . . . "
+            echo " Ex : flexurio mobile-AVD --run NEXUS "
+        fi
+    else
+        echo " Please write specific AVD Options . . . "
+        echo " --list           : List of all Android Virtual Device "
+        echo " --install        : Open SDK Manager to install library AVD "
+        echo " --run [AVD Name] : Open and run Android Virtual Device "
+    fi
+elif [ "$1" == "mobile-run" ]; then
+   if [ "$2" == "android" ]; then
+      cd FLEXURIO-MOBILE && \
+      react-native run-android
+   else
+      cd FLEXURIO-MOBILE && \
+      react-native run-ios
+   fi
+elif [ "$1" == "mobile-generate" ]; then
+    cd FLEXURIO-MOBILE && \
+    react-native upgrade
+elif [ "$1" == "mobile-packager" ]; then
+    cd FLEXURIO-MOBILE && \
+    npm start
+elif [ "$1" == "mobile-list" ]; then
+   echo " List all Nativescript package on your mobile app .... "
+   cd FLEXURIO-MOBILE && \
+   tns plugin
+elif [ "$1" == "create" ]; then
+    if [[ $2 = "" ]]; then
+        echo " Please input project name "
+    elif [ "$3" == "" ]; then
+       echo " Please input templating name ( bootstrap / materialize )"
+    else
+        if [[ $3 = "bootstrap" ]]; then
+            if [ -d "$2" ]; then
+                echo " Destination folder $2 already exists"
+            else
+                mkdir $2
+                git clone https://github.com/VNEU/FLEXURIO-BOOTSTRAP.git $2/FLEXURIO-CORE
+                sudo rm -R $2/FLEXURIO-CORE/.git
+                cd $2/FLEXURIO-CORE && meteor npm install --save bcrypt
+                echo " ----------------------------------------------------------------------------------------- "
+                echo " Create config file with bootstrap theme ( https://getbootstrap.com/ ).  "
+                echo " And icon with glypicons ( https://getbootstrap.com/docs/3.3/components/ ).  "
+                cd ../../$2 && echo "bootstrap" >  "flx.config"
+                echo " ----------------------------------------------------------------------------------------- "
+                echo " CREATE PROCESS DONE. "
+                echo "      *. Please go to folder $2 and server-run, "
+                echo "      *. After a while please visit http://localhost:3000 "
+                echo "      *. Happy code with flexurio guys, :) "
+                echo " ----------------------------------------------------------------------------------------- "
+            fi
+        elif [ "$3" == "materialize" ]; then
+            echo " Please contact nunung.pamungkas@vneu.co.id for licence"
+        fi
+    fi
+elif [ "$1" == "check" ]; then
+    echo $LOKASINIPUN
+elif [ "$1" == "update" ]; then
+    if [ $(id -u) != 0 ]; then
+         echo "You're not root "
+         echo "Root user need to update Flexurio. Please use sudo "
+         exit
+    else
+      curl https://flexurio.com/install.html | sh && sudo ./install -flx
+    fi
+elif [ "$1" == "init" ]; then
+    python ~/.flexurio/flexurio_portal login ~/.flexurio/flexurio_config
+elif [ "$1" == "--help" ] || [ "$1" == "" ]; then
+   printf "Flexurio is tools to bootstraping node on server - desktop, also with react-native on mobile app. Please read this options carefully. Any question feel free to email us at nunung.pamungkas@vneu.co.id or text at +628119003077. Please visit https://flexurio.com to join our community"
+   echo "Mature Nuwun, GBU, Jayalah Indonesia "
+   echo "  "
+   echo " version                              Version of Flexurio"
+   echo " ------------------------------------------------------------------------------- "
+   echo "  "
+   echo " CLI OPTIONS : "
+   echo "  "
+   echo " update                               Update flexurio to latest release"
+   echo " init                                 Initialing User ID flexurio"
+   echo " create [project name] [theme]        Create new flexurio project"
+   echo " check                                Check configurations"
+   echo "  "
+   echo " ------------------------------------------------------------------------------- "
+   echo "  "
+   echo " SERVER OPTIONS : "
+   echo "  "
+   echo " server-init                          Initial server side app - FLEXURIO-CORE "
+   echo " server-add                           Add All minimum package that must have"
+   echo " server-add [package]                 Add package with specific name"
+   echo " server-newmodule [fldr][name][tmplt] Create New Module with name appname at foldername"
+   echo " server-remove [package]              Remove package with specific name"
+   echo " server-run                           Run flexurio server - default at port 3000"
+   echo " server-runProductions                Run flexurio server with database productions "
+   echo "                                      Ex : flexurio server-runProductions username:password@192.168.1.1:10010 admin"
+   echo " server-update                        Update all - Framework & Package that use in your app"
+   echo " server-update --all-packages         Update all package dependency"
+   echo " server-update [package]              Update package with specific name"
+   echo " server-list                          List all package on your app"
+   echo " server-reset                         Back to factory data reset"
+   echo " server-build [os] [ip:port]          Build flexurio to use in server "
+   echo "                                      ( Result FLEXURIO-CORE.tar.gz) "
+   echo "  "
+   echo " ------------------------------------------------------------------------------- "
+   echo "  "
+   echo " MOBILE OPTIONS : "
+   echo "  "
+   echo " mobile-init                          Initial mobile app - FLEXURIO-MOBILE"
+   echo " mobile-generate                      Generate iOS & Android files "
+   echo " mobile-packager                      Run Packager react-native"
+   echo " mobile-run [type mobile]             Run flexurio mobile ( android / ios )"
+
+   echo " mobile-avd [options]                 Android emulator setup & configurations "
+   echo "  "
+   echo " ------------------------------------------------------------------------------- "
+   echo "  "
+   echo " DESKTOP OPTIONS : "
+   echo "  "
+   echo " desktop-init                         Enable fiture desktop mode"
+   echo " desktop-run                          run desktop local db."
+   echo " desktop-build                        Build Desktop APP.  "
+
+   echo " Usage: flexurio [type:server/mobile]-[options]"
+   echo " For more options, see 'sh flexurio --help'"
+else
+   echo " Usage: flexurio [type:server/mobile]-[options]"
+   echo " For more options, see 'flexurio --help'"
+fi
