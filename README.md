@@ -4,7 +4,7 @@ Ease in generating code for your App. Flexurio help programmer write web, deskto
 ## INSTALL
 ### Get installer :
 ```
-Download a zip and extrak. 
+Download a zip and extract, go to folder FLEXURIO-CLI. 
 
 ```
 
