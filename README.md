@@ -10,7 +10,9 @@ Download a zip and extract, go to folder FLEXURIO-CLI.
 
 ### Install Flexurio  :
 ```
-sudo ./install [options]
+sudo ./install -meteor && sudo ./install -flx
+
+Mandatory you must install meteor and flx. 
 
 ```
 
@@ -22,6 +24,7 @@ options:
 -flx                       Install FLEXURIO
 -all                       Install All packages that need on FLEXURIO
 ```
+
 
 ### Initial flexurio
 ```
