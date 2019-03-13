@@ -136,7 +136,7 @@ elif [ "$1" == "server-remove" ]; then
 elif [ "$1" == "server-init" ]; then
    echo " Bootstraping Flexurio Server side base on meteor . . . "
    python ~/.flexurio/flexurio_portal serverinit ~/.flexurio/flexurio_config
-   git clone https://github.com/VNEU/FLEXURIO-CORE.git
+   git clone --depth=1 https://github.com/VNEU/FLEXURIO-CORE.git
    cd FLEXURIO-CORE &&  rm -R .git
 elif [ "$1" == "server-update" ]; then
    if [ "$2" == "" ]; then
