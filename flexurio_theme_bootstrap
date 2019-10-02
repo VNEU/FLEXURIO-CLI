@@ -77,9 +77,14 @@ if [ "$1" == "server-newmodule" ]; then
        "
     done
 
-    sHTMLDisplayView=$(sed 's/.\{2\}$//' <<< "$sHTMLDisplay")
-    sCekAdaData=$(sed 's/.\{2\}$//' <<< "$sCekAda")
-
+    length=${#sHTMLDisplay}
+    endindex=$(expr $length - 2)
+    sHTMLDisplayView=${sHTMLDisplay:0:$endindex}
+   
+    length=${#sCekAda}
+    endindex=$(expr $length - 2)
+    sCekAdaData=${sCekAda:0:$endindex}
+    
     [ -d "FLEXURIO-CORE/client/views/$2" ] || mkdir "FLEXURIO-CORE/client/views/$2"
 
     sDATE=`date`
