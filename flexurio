@@ -171,9 +171,9 @@ elif [ "$1" == "server-newmodule" ]; then
       echo " Please write appname . . . "
    else
        if [ $FLX_THEME == "bootstrap" ]; then
-           sh ~/.flexurio/flexurio_theme_bootstrap server-newmodule $2 $3
+           bash ~/.flexurio/flexurio_theme_bootstrap server-newmodule $2 $3
        elif [ $FLX_THEME == "materialize" ]; then
-           sh ~/.flexurio/flexurio_theme_materialize server-newmodule $2 $3
+           bash ~/.flexurio/flexurio_theme_materialize server-newmodule $2 $3
        else
            error_parameter
        fi
