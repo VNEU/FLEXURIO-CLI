@@ -133,11 +133,6 @@ elif [ "$1" == "server-remove" ]; then
       cd "$LOKASINIPUN/FLEXURIO-CORE/" && \
       meteor remove $2
    fi
-elif [ "$1" == "server-init" ]; then
-   echo " Bootstraping Flexurio Server side base on meteor . . . "
-   python ~/.flexurio/flexurio_portal serverinit ~/.flexurio/flexurio_config
-   git clone --depth=1 https://github.com/VNEU/FLEXURIO-CORE.git
-   cd FLEXURIO-CORE &&  rm -R .git
 elif [ "$1" == "server-update" ]; then
    if [ "$2" == "" ]; then
       echo " Update Latest Flexurio server to stable release . . . "
@@ -285,8 +280,6 @@ elif [ "$1" == "update" ]; then
     else
       curl https://flexurio.com/install.html | sh && sudo ./install -flx
     fi
-elif [ "$1" == "init" ]; then
-    python ~/.flexurio/flexurio_portal login ~/.flexurio/flexurio_config
 elif [ "$1" == "--help" ] || [ "$1" == "" ]; then
    printf "Flexurio is tools to bootstraping node on server - desktop, also with react-native on mobile app. Please read this options carefully. Any question feel free to email us at nunung.pamungkas@vneu.co.id or text at +628119003077. Please visit https://flexurio.com to join our community"
    echo "Mature Nuwun, GBU, Jayalah Indonesia "
@@ -297,7 +290,6 @@ elif [ "$1" == "--help" ] || [ "$1" == "" ]; then
    echo " CLI OPTIONS : "
    echo "  "
    echo " update                               Update flexurio to latest release"
-   echo " init                                 Initialing User ID flexurio"
    echo " create [project name] [theme]        Create new flexurio project"
    echo " check                                Check configurations"
    echo "  "
@@ -305,7 +297,6 @@ elif [ "$1" == "--help" ] || [ "$1" == "" ]; then
    echo "  "
    echo " SERVER OPTIONS : "
    echo "  "
-   echo " server-init                          Initial server side app - FLEXURIO-CORE "
    echo " server-add                           Add All minimum package that must have"
    echo " server-add [package]                 Add package with specific name"
    echo " server-newmodule [fldr][name][tmplt] Create New Module with name appname at foldername"

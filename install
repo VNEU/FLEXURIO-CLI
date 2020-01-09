@@ -41,46 +41,6 @@ if [ "$1" == "-meteor" ] || [ "$1" == "-all" ]; then
     echo "Installation Meteor Complete."
     echo ""
     chmod -R +xrw ~/.meteor
-elif [ "$1" == "-pip" ] || [ "$1" == "-all" ]; then
-    (
-        if [ "$UNAME" == "Linux" ] ; then
-            apt-get install python-pip
-        fi
-        if [ "$UNAME" == "Darwin" ] ; then
-            curl https://bootstrap.pypa.io/get-pip.py | python
-        fi
-
-        pip install ConfigParser
-        pip install requests
-    ) & PID=$!
-
-    while kill -0 $PID 2> /dev/null; do
-        printf  "▓"
-        sleep 1
-    done
-    echo ""
-    echo "DONE, Your feedback make flexurio more usefull. Email your opinions at nunung.pamungkas@vneu.co.id, Thanks "
-    echo ""
-
-    echo ""
-    echo "Installation Python PIP Complete."
-    echo ""
-elif [ "$1" == "-rn" ] || [ "$1" == "-all" ]; then
-    (
-        npm install -g react-native-cli
-    ) & PID=$!
-
-    while kill -0 $PID 2> /dev/null; do
-        printf  "▓"
-        sleep 1
-    done
-    echo ""
-    echo "DONE, Your feedback make flexurio more usefull. Email your opinions at nunung.pamungkas@vneu.co.id, Thanks "
-    echo ""
-
-    echo ""
-    echo "Installation React-Native Complete."
-    echo ""
 elif [ "$1" == "-flx" ] || [ "$1" == "-all" ]; then
     if [ $(id -u) != 0 ]; then
          echo "You're not root"
@@ -91,54 +51,30 @@ elif [ "$1" == "-flx" ] || [ "$1" == "-all" ]; then
     echo ""
     echo "Please wait a moment, open access to meteors, mongodb, react, etc. Do not close or cancel this screen"
 
-    (
-        sudo apt-get install nodejs-legacy
-        sudo apt-get install npm
-        mkdir -p ~/.flexurio/
-        cp -R flexurio_config ~/.flexurio/
-        cp -R flexurio_portal ~/.flexurio/
+    mkdir -p ~/.flexurio/
+    cp -R flexurio_config ~/.flexurio/
 
-        sudo cp -R flexurio_theme_bootstrap ~/.flexurio/flexurio_theme_bootstrap
-        sudo chmod +x ~/.flexurio/flexurio_theme_bootstrap
+    sudo cp -R flexurio_theme_bootstrap ~/.flexurio/flexurio_theme_bootstrap
+    sudo chmod +x ~/.flexurio/flexurio_theme_bootstrap
 
-        cp -R flexurio_theme_materialize ~/.flexurio/flexurio_theme_materialize
-        sudo chmod +x ~/.flexurio/flexurio_theme_materialize
+    cp -R flexurio_theme_materialize ~/.flexurio/flexurio_theme_materialize
+    sudo chmod +x ~/.flexurio/flexurio_theme_materialize
 
-        sudo cp -R flexurio ~/.flexurio/flexurio
-        sudo rm -R /usr/local/bin/flexurio
-        sudo ln -s ~/.flexurio/flexurio /usr/local/bin/flexurio
-        sudo chmod +x /usr/local/bin/flexurio
-        sudo chmod +x ~/.flexurio/flexurio
-        sudo chmod -R +xrw ~/.meteor
-        rm flexurio
-        rm flexurio_portal
-        rm flexurio_config
-        rm flexurio_theme_bootstrap
-        rm flexurio_theme_materialize
-        rm install
-    ) & PID=$!
+    sudo cp -R flexurio ~/.flexurio/flexurio
+    sudo rm -R /usr/local/bin/flexurio
+    sudo ln -s ~/.flexurio/flexurio /usr/local/bin/flexurio
+    sudo chmod +x /usr/local/bin/flexurio
+    sudo chmod +x ~/.flexurio/flexurio
+    sudo chmod -R +xrw ~/.meteor
 
-    while kill -0 $PID 2> /dev/null; do
-        printf  "▓"
-        sleep 1
-    done
     echo ""
     echo "DONE, Your feedback make flexurio more usefull. Email your opinions at nunung.pamungkas@vneu.co.id, Thanks "
     echo ""
-elif [ "$1" == "-core" ]; then
-    ./install -meteor
-    ./install -flx
 else
     echo ""
     echo " Please input what you want install."
     echo " -meteor                    Install Meteor.JS"
-    echo " -pip                       Install Python PIP"
-    echo " -rn                        Install React-Native"
-    echo ""
     echo " -flx                       Install FLEXURIO"
     echo " -all                       Install All packages that need on FLEXURIO"
-    echo ""
-    echo " -core                      Install FLEXURIO with minimum library"
-
 fi
 exit 0
