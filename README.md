@@ -19,19 +19,10 @@ Mandatory you must install meteor and flx.
 ```
 options:
 -meteor                    Install Meteor.JS
--pip                       Install Python PIP
--rn                        Install React-Native
 -flx                       Install FLEXURIO
 -all                       Install All packages that need on FLEXURIO
 ```
 
-
-### Initial flexurio
-```
-flexurio init
-
-```
-Don't have an account? Sign up at http://wwww.flexurio.com
 
 
 

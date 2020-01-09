@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ac985f8a-0ac8-4bd3-adaa-bd2307805a06" name="Default" comment="update minor">
+    <list default="true" id="ac985f8a-0ac8-4bd3-adaa-bd2307805a06" name="Default" comment="Perbaikan install dan hilangkan login flexurio">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexurio" beforeDir="false" afterPath="$PROJECT_DIR$/flexurio" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexurio.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flexurio_portal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/install" beforeDir="false" afterPath="$PROJECT_DIR$/install" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +33,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="GO_FMT" value="true" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -99,7 +97,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1491406421926</updated>
-      <workItem from="1578556433390" duration="1207000" />
+      <workItem from="1578556433390" duration="1287000" />
     </task>
     <task id="LOCAL-00001" summary="add installer">
       <created>1491463078364</created>
@@ -143,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1493100987007</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Perbaikan install dan hilangkan login flexurio">
+      <created>1578557766527</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1578557766527</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,13 +163,18 @@
     <MESSAGE value="update flxcomments" />
     <MESSAGE value="clean unused" />
     <MESSAGE value="update minor" />
-    <option name="LAST_COMMIT_MESSAGE" value="update minor" />
+    <MESSAGE value="Perbaikan install dan hilangkan login flexurio" />
+    <option name="LAST_COMMIT_MESSAGE" value="Perbaikan install dan hilangkan login flexurio" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="527" y="160" width="862" height="808" key="CommitChangelistDialog2" timestamp="1578556869574">
+    <state x="527" y="160" width="862" height="808" key="CommitChangelistDialog2" timestamp="1578557766432">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="527" y="160" width="862" height="808" key="CommitChangelistDialog2/0.30.1920.1050@0.30.1920.1050" timestamp="1578556869574" />
+    <state x="527" y="160" width="862" height="808" key="CommitChangelistDialog2/0.30.1920.1050@0.30.1920.1050" timestamp="1578557766432" />
+    <state x="558" y="299" width="800" height="531" key="Vcs.Push.Dialog.v2" timestamp="1578557768010">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state x="558" y="299" width="800" height="531" key="Vcs.Push.Dialog.v2/0.30.1920.1050@0.30.1920.1050" timestamp="1578557768010" />
     <state x="655" y="392" key="com.intellij.ide.util.TipDialog" timestamp="1578556434422">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
